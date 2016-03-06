@@ -1,8 +1,8 @@
 <div class="client-info">
     <div class="row">
         <div class="col-80 col-offset-10 client-pet-name">
-            <h4>Carolina Powers</h4>
-            <p>Missy and Brody</p>
+            <h4>{{clientData.firstName}}{{clientData.lastName}}</h4>
+            <p>{{clientData.petsNames}}</p>
         </div>
         <div class="col-10 avatar-div">
             <div class="avatar">{{clientData.firstName | limitTo: 1 | uppercase}}{{clientData.lastName | limitTo: 1 | uppercase}}</div>

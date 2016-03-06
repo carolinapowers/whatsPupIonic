@@ -6,9 +6,10 @@ angular
     .module('whatsPupIonic')
     .controller('NewClient', NewClient);
 
-function NewClient () {
+function NewClient (CONST) {
     var vm = this;
-    
+    vm.clientData = {};
+    vm.inputTitle = CONST.inputDisplayTitle;  
 }
 
 })();

@@ -16,6 +16,7 @@ function ClientDetails (CONST) {
         firstName: 'Carolina',
         lastName: 'Powers',
         email: 'carolinapoloni@gmail.com',
+        petsNames: 'Missy and Brody',
         phone: 3218006625,
         streetAddress: '2812 Harriet Drive',
         city: 'Orlando',
