@@ -15,7 +15,6 @@
             'zipCode': 'Zip Code',
             'message': 'Message'
         }
-
     });
 
 })();

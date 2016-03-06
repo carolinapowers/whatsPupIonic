@@ -9892,3 +9892,27 @@ a.button {
     top: 5px; }
   .client-field label#client-input input {
     margin-top: 0.5em; }
+
+.client-info .row {
+  padding-top: 2em;
+  padding-bottom: 1em; }
+  .client-info .row .client-pet-name {
+    margin-left: 0.7em; }
+    .client-info .row .client-pet-name h4 {
+      margin: 0px;
+      font-size: 1.5em;
+      color: #342007; }
+    .client-info .row .client-pet-name p {
+      font-size: 1em;
+      color: #b7b7b7; }
+  .client-info .row .avatar-div {
+    margin-top: -0.4em; }
+    .client-info .row .avatar-div .avatar {
+      background-color: #e4983d;
+      border-radius: 30px;
+      width: 50px;
+      height: 50px;
+      color: #ffffff;
+      text-align: center;
+      font-size: 1.5em;
+      padding-top: 15px; }
