@@ -8,6 +8,8 @@ angular
 
 function NewVisit () {
     var vm = this;
+    vm.yesTreat = false;
+   
     
 }
 

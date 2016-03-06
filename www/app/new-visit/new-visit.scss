@@ -27,11 +27,18 @@
         }    
     }
     .list {
-         li.item.item-toggle { 
+        li.item.item-toggle { 
                 padding-bottom: 1em !important;
         }
-        .item {
-     
+        .item.item-input{
+            padding-top: 12px;
+            padding-bottom: 12px;
+        }
+        .item.item-select {
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+        .item {    
             .input-title {
                 padding-top: 0.3em;
                 color: gray;
