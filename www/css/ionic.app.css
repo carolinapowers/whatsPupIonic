@@ -9823,3 +9823,23 @@ a.button {
 .list-item .button-main-color {
   background-color: #f0c897 !important;
   color: #fff !important; }
+
+.new-visit .row {
+  padding-top: 2em; }
+  .new-visit .row .client-pet-name h4 {
+    margin: 0px;
+    font-size: 1.1em;
+    color: #342007; }
+  .new-visit .row .client-pet-name p {
+    font-size: 0.8em;
+    color: #b7b7b7; }
+  .new-visit .row .avatar-div .avatar {
+    background-color: #e4983d;
+    border-radius: 30px;
+    width: 40px;
+    height: 40px;
+    color: #ffffff;
+    text-align: center;
+    font-size: 1.3em;
+    padding-top: 10px;
+    margin-left: -2em; }
