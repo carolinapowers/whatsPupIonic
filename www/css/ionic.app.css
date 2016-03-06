@@ -9825,24 +9825,28 @@ a.button {
   color: #fff !important; }
 
 .new-visit .row {
-  padding-top: 2em; }
-  .new-visit .row .client-pet-name h4 {
-    margin: 0px;
-    font-size: 1.1em;
-    color: #342007; }
-  .new-visit .row .client-pet-name p {
-    font-size: 0.8em;
-    color: #b7b7b7; }
-  .new-visit .row .avatar-div .avatar {
-    background-color: #e4983d;
-    border-radius: 30px;
-    width: 40px;
-    height: 40px;
-    color: #ffffff;
-    text-align: center;
-    font-size: 1.3em;
-    padding-top: 10px;
-    margin-left: -2em; }
+  padding-top: 2em;
+  padding-bottom: 1em; }
+  .new-visit .row .client-pet-name {
+    margin-left: 0.7em; }
+    .new-visit .row .client-pet-name h4 {
+      margin: 0px;
+      font-size: 1.5em;
+      color: #342007; }
+    .new-visit .row .client-pet-name p {
+      font-size: 1em;
+      color: #b7b7b7; }
+  .new-visit .row .avatar-div {
+    margin-top: -0.4em; }
+    .new-visit .row .avatar-div .avatar {
+      background-color: #e4983d;
+      border-radius: 30px;
+      width: 50px;
+      height: 50px;
+      color: #ffffff;
+      text-align: center;
+      font-size: 1.5em;
+      padding-top: 13px; }
 
 .new-visit .list li.item.item-toggle {
   padding-bottom: 1em !important; }
