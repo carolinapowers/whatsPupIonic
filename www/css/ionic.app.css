@@ -9792,5 +9792,30 @@ a.button {
       display: inline-block;
       padding: 0.85em; }
 
-.clients .button i .ion-ios-plus-empty {
-  font-size: 1em; }
+.list-item .avatar-div .avatar {
+  background-color: #e4983d;
+  border-radius: 30px;
+  width: 40px;
+  height: 40px;
+  color: #ffffff;
+  text-align: center;
+  font-size: 1.3em;
+  padding-top: 10px; }
+
+.list-item .client-info {
+  margin-left: -1.8em !important; }
+  .list-item .client-info h5 {
+    margin: 0px;
+    font-size: 1.1em;
+    color: #342007; }
+  .list-item .client-info p {
+    font-size: 0.8em;
+    color: #b7b7b7; }
+
+.list-item .list-buttons.icon span {
+  color: green; }
+  .list-item .list-buttons.icon span:last-child {
+    color: blue;
+    margin-top: 0.1em;
+    margin-left: 0.5em;
+    margin-right: 0.3em; }

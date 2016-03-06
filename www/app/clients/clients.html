@@ -1,8 +1,25 @@
 <ion-view view-title="Clients" class="clients" >
-  <ion-nav-buttons side="right">
+    <ion-nav-buttons side="right">
       <button ui-sref="newClient" class="button"><i class="icon ion-plus"></i></button>
-  </ion-nav-buttons>
-   <ion-content>
-       <a ui-sref="client"> Clients </a>
+    </ion-nav-buttons>
+    <ion-content>
+       <ion-list>
+           <ion-item class="list-item" >
+             <div class="row item-icon-right">
+                  <div class="col-25 avatar-div">
+                       <div class="avatar">CP</div>
+                   </div>
+                   <div class="col-50 client-info">
+                       <h5>Carolina Powers</h5>
+                       <p>Missy and Brody</p>
+                   </div>
+                   <div class="col-35 list-buttons icon">
+                        <span class=" ion-ios-location-outline"></span>
+                           &nbsp;
+                        <span class=" ion-ios-telephone-outline"></span>
+                   </div>
+               </div>
+           </ion-item>
+       </ion-list>
     </ion-content>
 </ion-view>

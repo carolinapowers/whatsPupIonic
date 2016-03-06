@@ -20,7 +20,12 @@
     <script src="app/app.js"></script>
   </head>
   <body ng-app="whatsPupIonic">
+   
    <ion-nav-bar class="bar main-color">
+       <ion-nav-back-button>
+            <i class="ion-ios-arrow-back"></i> 
+            Back
+      </ion-nav-back-button>
     </ion-nav-bar>
     
     <ion-nav-view ng-class="{'has-header': $current.$state.name === login}"></ion-nav-view>
