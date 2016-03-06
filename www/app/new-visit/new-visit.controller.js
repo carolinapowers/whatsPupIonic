@@ -8,9 +8,9 @@ angular
 
 function NewVisit () {
     var vm = this;
-    vm.yesTreat = false;
-   
-    
+    vm.food = false;
+    vm.water= false;
+    vm.yesTreat = false;  
 }
 
 })();
