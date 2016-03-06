@@ -26,13 +26,14 @@
     }
     .list-buttons.icon {
         span {
-            color: green;
+            
+            color: $main-color;
+            opacity: 0.7;
            
             &:last-child {
-                color: blue;
                 margin-top: 0.1em;
                 margin-left: 0.5em;
-                margin-right:0.3em;
+                padding-right:0.3em;
             }
         }
     }
