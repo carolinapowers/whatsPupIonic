@@ -9843,3 +9843,23 @@ a.button {
     font-size: 1.3em;
     padding-top: 10px;
     margin-left: -2em; }
+
+.new-visit .list li.item.item-toggle {
+  padding-bottom: 1em !important; }
+
+.new-visit .list .item .input-title {
+  padding-top: 0.3em;
+  color: gray;
+  font-size: 0.8em;
+  position: absolute;
+  top: 0; }
+
+.new-visit .list .item label.toggle.toggle-energized.toggle-food {
+  top: 53px; }
+
+.new-visit .list .item .toggle {
+  margin-top: 1.03em; }
+
+.new-visit .list .item .toggle-label {
+  display: inline-block;
+  margin-top: 0.6em; }

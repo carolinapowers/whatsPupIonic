@@ -26,4 +26,31 @@
             }
         }    
     }
+    .list {
+         li.item.item-toggle { 
+                padding-bottom: 1em !important;
+        }
+        .item {
+     
+            .input-title {
+                padding-top: 0.3em;
+                color: gray;
+                font-size: 0.8em;
+                position: absolute;
+                top: 0;
+            }
+            label.toggle.toggle-energized.toggle-food {
+                top: 53px;
+            }
+           
+            .toggle {
+               margin-top: 1.03em;
+            }
+            
+            .toggle-label {
+                display: inline-block;
+                margin-top: 0.6em;
+            }
+        }
+    }
 }
