@@ -9846,7 +9846,7 @@ a.button {
       color: #ffffff;
       text-align: center;
       font-size: 1.5em;
-      padding-top: 13px; }
+      padding-top: 15px; }
 
 .new-visit .list li.item.item-toggle {
   padding-bottom: 1em !important; }
@@ -9854,6 +9854,8 @@ a.button {
 .new-visit .list .item.item-input {
   padding-top: 12px;
   padding-bottom: 12px; }
+  .new-visit .list .item.item-input textarea {
+    padding-top: 1em; }
 
 .new-visit .list .item.item-select {
   padding-top: 30px;
@@ -9868,6 +9870,12 @@ a.button {
 
 .new-visit .list .item label.toggle.toggle-energized.toggle-food {
   top: 53px; }
+
+.new-visit .list .item label.toggle.toggle-energized.toggle-plants {
+  top: 97px; }
+
+.new-visit .list .item label.toggle.toggle-energized.toggle-other {
+  top: 140px; }
 
 .new-visit .list .item .toggle {
   margin-top: 1.03em; }

@@ -13,7 +13,7 @@
                 <div class="avatar">CP</div>
             </div>
         </div>
-        <div class="list">
+        <div class="list visit-list">
             <label class="item item-input">
                 <span class="input-title">Email</span>
                 <input type="text">
@@ -70,7 +70,7 @@
                 <div class="first-toggle-item" style="padding-top: 0.5em;">
                     <p class="input-title">Miscelaneous Tasks</p>
                     <span class="input-label">Cleaned Up Pet Mess</span>
-                    <label class="toggle toggle-energized food-toggle">
+                    <label class="toggle toggle-energized food-pet-mess">
                         <input type="checkbox">
                         <div class="track">
                             <div class="handle"></div>
@@ -88,7 +88,7 @@
                 </div>
                 <div>
                     <span class="input-label toggle-label">Watered Plants</span>
-                    <label class="toggle toggle-energized toggle-food">
+                    <label class="toggle toggle-energized toggle-plants">
                         <input type="checkbox">
                         <div class="track">
                             <div class="handle"></div>
@@ -97,14 +97,18 @@
                 </div>
                 <div>
                     <span class="input-label toggle-label">Other(See Message)</span>
-                    <label class="toggle toggle-energized toggle-food">
+                    <label class="toggle toggle-energized toggle-other">
                         <input type="checkbox">
                         <div class="track">
                             <div class="handle"></div>
                         </div>
                     </label><!--other-->
                 </div>
-            </li><!--item-toggle-->    
+            </li><!--item-toggle-->   
+            <label class="item item-input">
+                <span class="input-title">Message</span>
+                <textarea maxlength="280" rows="5"></textarea> 
+            </label>
         </div><!--list-->
     </ion-content>
 </ion-view>
