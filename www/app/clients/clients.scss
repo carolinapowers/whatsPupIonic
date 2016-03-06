@@ -13,7 +13,7 @@
         }
     }
     .client-info {
-        margin-left: -1.8em !important;
+        margin-left: -1em !important;
         h5 {
             margin: 0px;
             font-size: 1.1em;
@@ -25,16 +25,18 @@
         }
     }
     .list-buttons.icon {
-        span {
-            
+        span { 
             color: $main-color;
-            opacity: 0.7;
-           
+            opacity: 0.7;   
             &:last-child {
                 margin-top: 0.1em;
                 margin-left: 0.5em;
                 padding-right:0.3em;
             }
         }
+    }
+    .button-main-color {
+        background-color: lighten($main-color, 20%) !important;
+        color: #fff !important;
     }
 }

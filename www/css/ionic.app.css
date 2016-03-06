@@ -9803,7 +9803,7 @@ a.button {
   padding-top: 10px; }
 
 .list-item .client-info {
-  margin-left: -1.8em !important; }
+  margin-left: -1em !important; }
   .list-item .client-info h5 {
     margin: 0px;
     font-size: 1.1em;
@@ -9819,3 +9819,7 @@ a.button {
     margin-top: 0.1em;
     margin-left: 0.5em;
     padding-right: 0.3em; }
+
+.list-item .button-main-color {
+  background-color: #f0c897 !important;
+  color: #fff !important; }

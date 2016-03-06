@@ -11,6 +11,8 @@ function Clients ($scope) {
     $scope.$on('$ionicView.beforeEnter', function (event, viewData) {
         viewData.enableBack = false;
 }); 
+    vm.listCanSwipe = true;
+    vm.toggle = true;
     
 }
 
