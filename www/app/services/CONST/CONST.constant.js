@@ -9,7 +9,7 @@
             'lastName': 'Last Name',
             'email': 'Email',
             'phone': 'Phone Number',
-            'streetAddres': 'Street Address',
+            'address': 'Street Address',
             'city': 'City',
             'state': 'State',
             'zipCode': 'Zip Code',
