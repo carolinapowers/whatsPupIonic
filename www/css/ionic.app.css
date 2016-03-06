@@ -9791,3 +9791,6 @@ a.button {
     .login-wrapper .login-content .facebook-login a .flogin-text {
       display: inline-block;
       padding: 0.85em; }
+
+.clients .button i .ion-ios-plus-empty {
+  font-size: 1em; }
