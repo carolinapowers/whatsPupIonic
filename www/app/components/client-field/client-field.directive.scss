@@ -1,7 +1,14 @@
-.client-field {
+.client-field{
+    label#client-input{
+        padding-top: 18px;
+        padding-bottom: 1px;
+        #client-title {
+            position: absolute;
+            top: 5px;
+        }
+        input {
+            margin-top: 0.5em;
+        }
+    }
 }
 
-.client-input-title{
-    font-size: 1em;
-    margin-top: .7em;
-}

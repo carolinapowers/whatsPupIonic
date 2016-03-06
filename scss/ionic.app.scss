@@ -44,5 +44,9 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 @import "www/app/login/login";
 @import "www/app/clients/clients";
 @import "www/app/new-visit/new-visit";
+@import "www/app/new-client/new-client";
+@import "www/app/client-details/client-details";
+@import "www/app/components/client-field/client-field.directive";  
+@import "www/app/components/client-info/client-info.directive";     
     
 

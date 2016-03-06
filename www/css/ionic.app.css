@@ -9883,3 +9883,12 @@ a.button {
 .new-visit .list .item .toggle-label {
   display: inline-block;
   margin-top: 0.6em; }
+
+.client-field label#client-input {
+  padding-top: 18px;
+  padding-bottom: 1px; }
+  .client-field label#client-input #client-title {
+    position: absolute;
+    top: 5px; }
+  .client-field label#client-input input {
+    margin-top: 0.5em; }

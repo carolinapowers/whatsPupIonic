@@ -6,9 +6,11 @@ angular
     .module('whatsPupIonic')
     .controller('ClientDetails', ClientDetails);
 
-function ClientDetails () {
+ClientDetails.$inject=['CONST'];
+    
+function ClientDetails (CONST) {
     var vm = this;
-    vm.hello = 'hi';
+    vm.inputDisplayTitle = CONST.inputDisplayTitle;
     
     vm.clientData = {
         firstName: 'Carolina',

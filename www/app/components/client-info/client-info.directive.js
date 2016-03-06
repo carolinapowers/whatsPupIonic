@@ -12,7 +12,7 @@
             templateUrl: 'app/components/client-info/client-info.directive.html',
             scope: {
                 clientData: '=',
-                clientDisplayNames: '=',
+                inputTitle: '=',
             },
             link: link
         };
