@@ -20,6 +20,16 @@ $dark:                            #444 !default;
   margin-left: auto;
   display: inline-block; }
 
+.body {
+  font-family: 'Open Sans', sans-serif; }
+
+.main-color {
+  background-color: #e4983d !important;
+  color: #fff !important; }
+  .main-color button {
+    background-color: transparent;
+    color: white; }
+
 /*!
   Ionicons, v2.0.1
   Created by Ben Sperry for the Ionic Framework, http://ionicons.com/
@@ -9736,13 +9746,48 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
+.main-color-bg {
+  background-color: #e4983d; }
+
+.main-color, a.main-color {
+  color: #e4983d; }
+
+.main-color-border {
+  border-color: #e4983d; }
+
 .login-wrapper .login-content {
-  background-color: orange; }
-  .login-wrapper .login-content h1 {
-    color: #fff;
-    width: 80%;
+  background-color: #e4983d; }
+  .login-wrapper .login-content .logo-div {
+    margin-top: 4em;
+    margin-bottom: 1.2em;
+    text-align: center; }
+    .login-wrapper .login-content .logo-div h1 {
+      color: #fff;
+      padding: 0.2em 0;
+      border-top: 2.5px solid white;
+      border-bottom: 2.5px solid white;
+      font-weight: 400; }
+  .login-wrapper .login-content .app-description h3 {
     text-align: center;
-    border-top: 2px solid white;
-    border-bottom: 2px solid white; }
-  .login-wrapper .login-content a {
-    color: #fff; }
+    color: #fff;
+    margin-top: 1.2em;
+    font-weight: 400;
+    font-size: 1.6em; }
+    .login-wrapper .login-content .app-description h3:last-child {
+      margin: 1.7em 0 1.3em; }
+  .login-wrapper .login-content .facebook-login {
+    text-align: center; }
+    .login-wrapper .login-content .facebook-login a .sitterbtn {
+      margin-top: 2.4ex;
+      background-color: cornflowerblue;
+      color: #fff;
+      font-size: 1.3em;
+      font-weight: 300; }
+    .login-wrapper .login-content .facebook-login a .flogin-icon {
+      background-color: #3b5998;
+      padding: 0.8em 1em;
+      float: left;
+      display: inline-block; }
+    .login-wrapper .login-content .facebook-login a .flogin-text {
+      display: inline-block;
+      padding: 0.85em; }
