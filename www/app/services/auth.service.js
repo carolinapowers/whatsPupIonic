@@ -1,7 +1,7 @@
 angular.module('whatsPupIonic')
 
 .factory('auth', function ($firebaseObject, $state, CONST, Auth) {
-    var auth = new Firebase("https://whatspup.firebaseio.com/");
+    var auth = new Firebase(CONST.baseUrl);
     var currentUser = {};
 
     return {
@@ -13,13 +13,6 @@ angular.module('whatsPupIonic')
         updateUser:updateUser
     }
         
-   
-        function onAuth (creds) {
-            Auth.onAuth(function (data) {
-                creds(updateUser(data));
-            });
-        };
-    
         function sitterlogin () {
             Auth.$authWithOAuthRedirect("facebook").then(function (authData) {
                 $state.go('clients');
@@ -46,7 +39,7 @@ angular.module('whatsPupIonic')
         };
        
         function loggedIn () {
-            if (Auth.getAuth()) {
+            if (auth.getAuth()) {
                 return true;
             }
         };
@@ -55,30 +48,33 @@ angular.module('whatsPupIonic')
             return currentUser;
         };
     
-
+        function onAuth (creds) {
+            auth.onAuth(function (data) {
+                creds(updateUser(data));
+            });
+        };
    
-    function updateUser(authdUser) {
-        if (authdUser === null) {
-            return null;
-        }
-          
-        var fbUser = Auth.child('petsitter').child(authdUser.facebook.id);
-        fbUser.update({
-            uid: authdUser.facebook.id,
-            facebook: authdUser.facebook,
-            fullName: authdUser.facebook.displayName,
-            firstName: authdUser.facebook.cachedUserProfile.first_name,
-            lastName: authdUser.facebook.cachedUserProfile.last_name,
-            avatarUrl: authdUser.facebook.cachedUserProfile.picture.data.url,
-            gender: authdUser.facebook.cachedUserProfile.gender
-        });
-        
-        fbUser = $firebaseObject(Auth
-                .child('petsitter')
-                .child(authdUser.facebook.id)
-            )
-          
-        currentUser = fbUser;
-        return fbUser;
-    };
+        function updateUser(authdUser) {
+            if (authdUser === null) {
+                return null;
+            }
+
+            var fbUser = auth.child('petsitter').child(authdUser.facebook.id);
+            fbUser.update({
+                uid: authdUser.facebook.id,
+                facebook: authdUser.facebook,
+                fullName: authdUser.facebook.displayName,
+                firstName: authdUser.facebook.cachedUserProfile.first_name,
+                lastName: authdUser.facebook.cachedUserProfile.last_name,
+                avatarUrl: authdUser.facebook.cachedUserProfile.picture.data.url,
+                gender: authdUser.facebook.cachedUserProfile.gender
+            });
+
+            fbUser = $firebaseObject(auth
+                    .child('petsitter')
+                    .child(authdUser.facebook.id)
+                )   
+            currentUser = fbUser;
+            return fbUser;
+        };
 })

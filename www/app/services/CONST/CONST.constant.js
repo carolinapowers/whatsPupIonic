@@ -2,7 +2,7 @@
 
     angular.module('whatsPupIonic').constant('CONST', {
 
-        whatsPupApiBaseUrl : 'https://whatspup.firebaseio.com/',
+        baseUrl : 'https://whatspup.firebaseio.com/',
 
         inputDisplayTitle: {
             'firstName': 'First Name',

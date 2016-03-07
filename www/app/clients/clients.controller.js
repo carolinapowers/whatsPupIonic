@@ -6,7 +6,7 @@ angular
     .module('whatsPupIonic')
     .controller('Clients', Clients);
 
-function Clients ($scope, auth) {
+function Clients ($scope, auth, clients, $firebaseArray, Auth) {
     var vm = this;
     $scope.$on('$ionicView.beforeEnter', function (event, viewData) {
         viewData.enableBack = false;
@@ -14,6 +14,20 @@ function Clients ($scope, auth) {
     vm.listCanSwipe = true;
     vm.toggle = true;
     vm.logout = auth.logout;
+    var userUid = auth.onAuth(function (user) {
+            vm.user = user;
+            if (user === null) {
+                console.log('null')
+            } else {
+                console.log(user.$id)
+                return user.$id;
+            }
+        });
+    var sitterInfo = new Firebase('https://whatspup.firebaseio.com/Clients/' + vm.user.$id);
+    vm.clients = $firebaseArray(sitterInfo);
+    
+    console.log(vm.clients);
+    
     
 }
 

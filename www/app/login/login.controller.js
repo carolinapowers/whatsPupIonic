@@ -10,13 +10,14 @@ function LoginCtrl (auth, Auth, $scope, $state) {
     var vm = this;
     vm.sitterlogin = auth.sitterlogin;
     vm.logout = auth.logout;
+   
     
     Auth.$onAuth(function(authData) {
     if (authData === null) {
       console.log('Not logged in yet');
     } else {
       console.log('Logged in as', authData.uid);
-        $state.go('clients');
+      $state.go('clients');
     }
     // This will display the user's name in our view
     $scope.authData = authData;
