@@ -9884,6 +9884,9 @@ a.button {
   display: inline-block;
   margin-top: 0.6em; }
 
+i.more-icon.ion-android-more-vertical {
+  font-size: 25px; }
+
 .client-field label#client-input {
   padding-top: 18px;
   padding-bottom: 1px; }
