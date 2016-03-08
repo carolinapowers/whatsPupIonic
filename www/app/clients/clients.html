@@ -12,10 +12,13 @@
             <ion-item class="list-item" ng-repeat="client in vm.clients | filter:search.name">
                 <div class="row item-icon-right">
                     <div class="col-25 avatar-div">
-                        <div class="avatar">{{vm.clientInitials(client.name) | uppercase}}</div>
+                        <div class="avatar">
+                        <span ng-if="client.name">{{vm.clientInitials(client.name) | uppercase}}</span>                       <span ng-if="!client.name">{{client.firstName | limitTo:1 | uppercase}}{{client.lastName | limitTo:1 | uppercase}}</span>
+                        
+                        </div>
                     </div>
                     <div class="col-50 client-info" ui-sref="clientDetails({userId: vm.user.$id, clientId: client.$id }) ">
-                        <h5>{{client.name}}{{client.firstName}}{{client.lastName}}</h5>
+                        <h5>{{client.name}}{{client.firstName}} {{client.lastName}}</h5>
                         <p>{{client.pet}}</p>
                     </div>
                     <div class="col-35 list-buttons icon">
