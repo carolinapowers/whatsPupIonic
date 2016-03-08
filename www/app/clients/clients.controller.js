@@ -7,26 +7,19 @@ angular
     .controller('Clients', Clients);
 
 function Clients ($scope, auth, clients, $firebaseArray, Auth) {
-    var vm = this;
+     var vm = this;
     $scope.$on('$ionicView.beforeEnter', function (event, viewData) {
         viewData.enableBack = false;
-}); 
-    vm.listCanSwipe = true;
-    vm.toggle = true;
-    vm.logout = auth.logout;
-    vm.clientInitials = clientInitials;
+    }); 
     auth.onAuth(function (user) {
         vm.user = user;
-        if (user === null) {
-            console.log('null')
-        } else {
-            console.log(user.$id)
-            return user.$id;
-        }
+        return user.$id;
     });
-    var sitterInfo = new Firebase('https://whatspup.firebaseio.com/Clients/' + vm.user.$id);
-    vm.clients = $firebaseArray(sitterInfo);
-    
+    vm.listCanSwipe = true;
+    vm.logout = auth.logout;
+    vm.clientInitials = clientInitials; 
+    vm.clients =clients.getClients(vm.user.$id);
+ 
     function clientInitials (name) {
         var name = name.split(' ');
         if (name.length > 1){

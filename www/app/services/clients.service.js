@@ -1,47 +1,43 @@
 angular.module('whatsPupIonic')
 
-.factory('clients', function ($firebaseArray, $state, CONST, Auth) {
-   
-    return {
-        
+.factory('clients', function ($firebaseArray, Auth, $firebaseObject) {
+
+    return { 
         addClient : addClient,
         deleteClient: deleteClient,
-        getClients: getClients
+        getClients: getClients,
+        getClient: getClient
+    }
+         
+    function getClients(userId) {
+        var sitterInfo = new Firebase('https://whatspup.firebaseio.com/Clients/' + userId);
+        return  $firebaseArray(sitterInfo);
     }
     
-    var self = this;
-    var userUid = Auth.onAuth(function (user) {
-            self.user = user;
-            if (user === null) {
-                console.log('null')
-            } else {
-                console.log(user.$id)
-                return user.$id;
-            }
-        });
-    var sitterInfo = new Firebase('https://whatspup.firebaseio.com/Clients/' + this.user.$id);
-    var delClient = new Firebase('https://whatspup.firebaseio.com/Clients/' + this.user.$id + '/' + newClient.$id);
-    //var clients = $firebaseArray(sitterInfo);
+    function getClient(userId, clientId) {
+        var oneClient = new Firebase('https://whatspup.firebaseio.com/Clients/' + userId + '/' + clientId);
+        return $firebaseObject(oneClient);
+    }
     
-        function getClients() {
-            return  $firebaseArray(sitterInfo);
-        }
-       function addClient (newClient) {
-            clients.$add(newClient);
-            return this.newClient = {
-                name: '',
-                pet: '',
-                email: '',
-                phone: '',
-                street: '',
-                city: '',
-                state: '',
-                zip: '',
-                sitterUid: ''
-            };
+    function addClient (newClient) {
+        clients.$add(newClient);
+        return this.newClient = {
+            name: '',
+            pet: '',
+            email: '',
+            phone: '',
+            street: '',
+            city: '',
+            state: '',
+            zip: '',
+            sitterUid: ''
         };
-    
+    };
+          
         function deleteClient (newClient) {
             delClient.remove();
         };
+    
+    //    var delClient = new Firebase('https://whatspup.firebaseio.com/Clients/' + this.user.$id + '/' + newClient.$id);
+     
 })

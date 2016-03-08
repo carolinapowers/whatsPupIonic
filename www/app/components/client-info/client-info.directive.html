@@ -1,18 +1,19 @@
 <div class="client-info">
     <div class="row">
         <div class="col-80 col-offset-10 client-pet-name">
-            <h4>{{clientData.firstName}}{{clientData.lastName}}</h4>
-            <p>{{clientData.petsNames}}</p>
+            <h4>{{clientData.firstName}}{{clientData.lastName}}{{clientData.name}}</h4>
+            <p>{{clientData.pet}}</p>
         </div>
         <div class="col-10 avatar-div">
-            <div class="avatar">{{clientData.firstName | limitTo: 1 | uppercase}}{{clientData.lastName | limitTo: 1 | uppercase}}</div>
+            <div class="avatar">{{clientData.firstName | limitTo: 1 | uppercase}}{{clientData.lastName | limitTo: 1 | uppercase}}
+                {{clientInitials(clientData.name)}}</div>
         </div>
     </div>
     <client-field field-value="clientData.email" field-title="inputTitle.email"></client-field>
     <client-field field-value="clientData.phone" field-title="inputTitle.phone"></client-field>
-    <client-field field-value="clientData.streetAddress" field-title="inputTitle.address"></client-field>
+    <client-field field-value="clientData.street" field-title="inputTitle.address"></client-field>
     <client-field field-value="clientData.city" field-title="inputTitle.city"></client-field>
     <client-field field-value="clientData.state" field-title="inputTitle.state"></client-field>
-    <client-field field-value="clientData.zipCode" field-title="inputTitle.zipCode"></client-field>
+    <client-field field-value="clientData.zip" field-title="inputTitle.zipCode"></client-field>
     <client-field field-value="clientData.message" field-title="inputTitle.message"></client-field>
 </div>
