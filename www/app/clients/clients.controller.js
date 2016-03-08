@@ -29,7 +29,6 @@ function Clients ($scope, auth, clients, $firebaseArray, Auth) {
     
     function clientInitials (name) {
         var name = name.split(' ');
-        console.log(name);
         if (name.length > 1){
             return (name[0][0] + name[1][0]);
         } else {
