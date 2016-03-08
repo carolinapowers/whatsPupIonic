@@ -5,8 +5,10 @@
             <p>{{clientData.pet}}</p>
         </div>
         <div class="col-10 avatar-div">
-            <div class="avatar">{{clientData.firstName | limitTo: 1 | uppercase}}{{clientData.lastName | limitTo: 1 | uppercase}}
-                {{clientInitials(clientData.name)}}</div>
+            <div class="avatar">
+               <span ng-if="!clientData.name">?</span>
+               <span ng-if="clientData.$id">{{clientInitials(clientData.name)}}</span>    {{clientData.firstName | limitTo: 1 | uppercase}}{{clientData.lastName | limitTo: 1 | uppercase}}
+                </div>
         </div>
     </div>
     <client-field field-value="clientData.email" field-title="inputTitle.email"></client-field>
