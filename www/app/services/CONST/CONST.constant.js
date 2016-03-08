@@ -7,6 +7,7 @@
         inputDisplayTitle: {
             'firstName': 'First Name',
             'lastName': 'Last Name',
+            'pet': 'Pets Names',
             'email': 'Email',
             'phone': 'Phone Number',
             'address': 'Street Address',

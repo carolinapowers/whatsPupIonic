@@ -8,9 +8,12 @@
             <div class="avatar">
                <span ng-if="!clientData.name">?</span>
                <span ng-if="clientData.$id">{{clientInitials(clientData.name)}}</span>    {{clientData.firstName | limitTo: 1 | uppercase}}{{clientData.lastName | limitTo: 1 | uppercase}}
-                </div>
+            </div>
         </div>
     </div>
+     <client-field ng-if="!clientData.$id" field-value="clientData.firstName" field-title="inputTitle.firstName"></client-field>
+    <client-field ng-if="!clientData.$id" field-value="clientData.lastName" field-title="inputTitle.lastName"></client-field>
+    <client-field field-value="clientData.pet" field-title="inputTitle.pet"></client-field>
     <client-field field-value="clientData.email" field-title="inputTitle.email"></client-field>
     <client-field field-value="clientData.phone" field-title="inputTitle.phone"></client-field>
     <client-field field-value="clientData.street" field-title="inputTitle.address"></client-field>

@@ -16,14 +16,10 @@ angular.module('whatsPupIonic')
         function sitterlogin () {
             Auth.$authWithOAuthRedirect("facebook").then(function (authData) {
                 $state.go('clients');
-                // User successfully logged in
             }).catch(function (error) {
                 if (error.code === "TRANSPORT_UNAVAILABLE") {
                     auth.$authWithOAuthPopup("facebook").then(function (authData) {
-                        // User successfully logged in. We can log to the console
-                        // since we’re using a popup here
-                        $state.go('clients');
-                        console.log(authData);
+                        $state.go('login');
                     });
                 } else {
                     // Another error occurred
