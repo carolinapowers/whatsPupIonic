@@ -6,17 +6,20 @@ angular
     .module('whatsPupIonic')
     .controller('NewVisit', NewVisit);
 
-function NewVisit () {
+function NewVisit (clients, $stateParams) {
     var vm = this;
     vm.food = false;
     vm.water= false;
     vm.yesTreat = false;
-    vm.hideLabelFunc = hideLabelFunc;
-    vm.hideLabel = false;
+    console.log($stateParams);
     
-    function hideLabelFunc () {
-        vm.hideLabel = true;
-    }
-}
+    clients.getClient($stateParams.userId, $stateParams.clientId)
+        .$loaded()
+            .then(function (data) {
+                console.log(data);
+                vm.clientData = data; 
+        }); 
+}    
+
 
 })();

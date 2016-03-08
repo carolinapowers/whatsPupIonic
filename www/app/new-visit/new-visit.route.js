@@ -7,7 +7,7 @@
         .config(function ($stateProvider){
          $stateProvider
           .state('newVisit', {
-             url: '/new-visit/:id',
+             url: '/new-visit/:userId/:clientId',
              templateUrl: 'app/new-visit/new-visit.html',
              controller: 'NewVisit',
              controllerAs: 'vm'

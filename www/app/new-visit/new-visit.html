@@ -6,8 +6,8 @@
     <ion-content>
         <div class="row">
             <div class="col-80 col-offset-10 client-pet-name">
-                <h4>Carolina Powers</h4>
-                <p>Missy and Brody</p>
+                <h4>{{vm.clientData.name}}{{vm.clientData.firstName}}</h4>
+                <p>{{vm.clientData.pet}}</p>
             </div>
             <div class="col-10 avatar-div">
                 <div class="avatar">CP</div>
@@ -16,7 +16,7 @@
         <div class="list visit-list">
             <label class="item item-input">
                 <span class="input-title">Email</span>
-                <input type="text">
+                <input type="text" ng-model="vm.clientData.email">
             </label><!--email-->
             <li class="item item-toggle">
                 <div class="first-toggle-item" style="padding-top: 0.5em;">
