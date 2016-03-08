@@ -14,21 +14,28 @@ function Clients ($scope, auth, clients, $firebaseArray, Auth) {
     vm.listCanSwipe = true;
     vm.toggle = true;
     vm.logout = auth.logout;
-    var userUid = auth.onAuth(function (user) {
-            vm.user = user;
-            if (user === null) {
-                console.log('null')
-            } else {
-                console.log(user.$id)
-                return user.$id;
-            }
-        });
+    vm.clientInitials = clientInitials;
+    auth.onAuth(function (user) {
+        vm.user = user;
+        if (user === null) {
+            console.log('null')
+        } else {
+            console.log(user.$id)
+            return user.$id;
+        }
+    });
     var sitterInfo = new Firebase('https://whatspup.firebaseio.com/Clients/' + vm.user.$id);
     vm.clients = $firebaseArray(sitterInfo);
     
-    console.log(vm.clients);
-    
-    
+    function clientInitials (name) {
+        var name = name.split(' ');
+        console.log(name);
+        if (name.length > 1){
+            return (name[0][0] + name[1][0]);
+        } else {
+            return (name[0][0]);
+        }
+    }
 }
 
 })();
