@@ -10,17 +10,17 @@
         </label>
         <ion-list can-swipe="vm.listCanSwipe" >
             <ion-item class="list-item" ng-repeat="client in vm.clients">
-                <div class="row item-icon-right" ui-sref="clientDetails">
+                <div class="row item-icon-right">
                     <div class="col-25 avatar-div">
                         <div class="avatar">{{vm.clientInitials(client.name) | uppercase}}</div>
                     </div>
-                    <div class="col-50 client-info">
+                    <div class="col-50 client-info" ui-sref="clientDetails">
                         <h5>{{client.name}}</h5>
                         <p>{{client.pet}}</p>
                     </div>
                     <div class="col-35 list-buttons icon">
-                        <span class=" ion-ios-navigate-outline"></span> &nbsp;
-                        <span class=" ion-ios-telephone-outline"></span>
+                    <a href="http://maps.google.com/?q={{ client.street }} {{ client.city }} {{client.state}} {{client.zip }}"><span class=" ion-ios-navigate-outline"></span></a> &nbsp;
+                    <a  href="tel: {{client.phone }}"><span class=" ion-ios-telephone-outline"></span></a>
                     </div>
                     <ion-option-button ng-show="vm.toggle" class="button button-main-color" ui-sref="newVisit">
                         Add Visit
