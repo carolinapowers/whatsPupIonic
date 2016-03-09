@@ -6,9 +6,18 @@ angular
     .module('whatsPupIonic')
     .controller('ClientDetails', ClientDetails);
 
-function ClientDetails () {
-    var vm = this;
+ClientDetails.$inject=['CONST', '$stateParams','clients', '$firebaseObject'];
     
+function ClientDetails (CONST, $stateParams, clients, $firebaseObject) {
+    var vm = this;
+    vm.inputDisplayTitle = CONST.inputDisplayTitle;
+   
+    clients.getClient($stateParams.userId, $stateParams.clientId)
+        .$loaded()
+            .then(function (data) {
+                console.log(data);
+                vm.clientData = data; 
+        }); 
 }
 
 })();

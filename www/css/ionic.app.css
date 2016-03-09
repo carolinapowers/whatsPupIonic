@@ -20,6 +20,16 @@ $dark:                            #444 !default;
   margin-left: auto;
   display: inline-block; }
 
+.body {
+  font-family: 'Open Sans', sans-serif; }
+
+.main-color {
+  background-color: #e4983d !important;
+  color: #fff !important; }
+  .main-color button {
+    background-color: transparent;
+    color: white; }
+
 /*!
   Ionicons, v2.0.1
   Created by Ben Sperry for the Ionic Framework, http://ionicons.com/
@@ -9736,13 +9746,178 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
+.main-color-bg {
+  background-color: #e4983d; }
+
+.main-color, a.main-color {
+  color: #e4983d; }
+
+.main-color-border {
+  border-color: #e4983d; }
+
 .login-wrapper .login-content {
-  background-color: orange; }
-  .login-wrapper .login-content h1 {
-    color: #fff;
-    width: 80%;
+  background-color: #e4983d; }
+  .login-wrapper .login-content .logo-div {
+    margin-top: 4em;
+    margin-bottom: 1.2em;
+    text-align: center; }
+    .login-wrapper .login-content .logo-div h1 {
+      color: #fff;
+      padding: 0.2em 0;
+      border-top: 2.5px solid white;
+      border-bottom: 2.5px solid white;
+      font-weight: 400; }
+  .login-wrapper .login-content .app-description h3 {
     text-align: center;
-    border-top: 2px solid white;
-    border-bottom: 2px solid white; }
-  .login-wrapper .login-content a {
-    color: #fff; }
+    color: #fff;
+    margin-top: 1.2em;
+    font-weight: 400;
+    font-size: 1.6em; }
+    .login-wrapper .login-content .app-description h3:last-child {
+      margin: 1.7em 0 1.3em; }
+  .login-wrapper .login-content .facebook-login {
+    text-align: center; }
+    .login-wrapper .login-content .facebook-login a .sitterbtn {
+      margin-top: 2.4ex;
+      background-color: cornflowerblue;
+      color: #fff;
+      font-size: 1.3em;
+      font-weight: 300; }
+    .login-wrapper .login-content .facebook-login a .flogin-icon {
+      background-color: #3b5998;
+      padding: 0.8em 1em;
+      float: left;
+      display: inline-block; }
+    .login-wrapper .login-content .facebook-login a .flogin-text {
+      display: inline-block;
+      padding: 0.85em; }
+
+.list-item .avatar-div .avatar {
+  background-color: #e4983d;
+  border-radius: 30px;
+  width: 40px;
+  height: 40px;
+  color: #ffffff;
+  text-align: center;
+  font-size: 1.3em;
+  padding-top: 10px; }
+
+.list-item .client-info {
+  margin-left: -1em !important; }
+  .list-item .client-info h5 {
+    margin: 0px;
+    font-size: 1.1em;
+    color: #342007; }
+  .list-item .client-info p {
+    font-size: 0.8em;
+    color: #b7b7b7; }
+
+.list-item .list-buttons.icon span {
+  color: #e4983d;
+  opacity: 0.7; }
+  .list-item .list-buttons.icon span:last-child {
+    margin-top: 0.1em;
+    margin-left: 0.5em;
+    padding-right: 0.3em; }
+
+.list-item .button-main-color {
+  background-color: #f0c897 !important;
+  color: #fff !important; }
+
+.new-visit .row {
+  padding-top: 2em;
+  padding-bottom: 1em; }
+  .new-visit .row .client-pet-name {
+    margin-left: 0.7em; }
+    .new-visit .row .client-pet-name h4 {
+      margin: 0px;
+      font-size: 1.5em;
+      color: #342007; }
+    .new-visit .row .client-pet-name p {
+      font-size: 1em;
+      color: #b7b7b7; }
+  .new-visit .row .avatar-div {
+    margin-top: -0.4em; }
+    .new-visit .row .avatar-div .avatar {
+      background-color: #e4983d;
+      border-radius: 30px;
+      width: 50px;
+      height: 50px;
+      color: #ffffff;
+      text-align: center;
+      font-size: 1.5em;
+      padding-top: 15px; }
+
+.new-visit .list li.item.item-toggle {
+  padding-bottom: 1em !important; }
+
+.new-visit .list .item.item-input {
+  padding-top: 12px;
+  padding-bottom: 12px; }
+  .new-visit .list .item.item-input textarea {
+    padding-top: 1em; }
+
+.new-visit .list .item.item-select {
+  padding-top: 30px;
+  padding-bottom: 30px; }
+
+.new-visit .list .item .input-title {
+  padding-top: 0.3em;
+  color: gray;
+  font-size: 0.8em;
+  position: absolute;
+  top: 0; }
+
+.new-visit .list .item label.toggle.toggle-energized.toggle-food {
+  top: 53px; }
+
+.new-visit .list .item label.toggle.toggle-energized.toggle-plants {
+  top: 97px; }
+
+.new-visit .list .item label.toggle.toggle-energized.toggle-other {
+  top: 140px; }
+
+.new-visit .list .item .toggle {
+  margin-top: 1.03em; }
+
+.new-visit .list .item .toggle-label {
+  display: inline-block;
+  margin-top: 0.6em; }
+
+i.more-icon.ion-android-more-vertical {
+  font-size: 25px; }
+
+.client-field label#client-input {
+  padding-top: 18px;
+  padding-bottom: 1px; }
+  .client-field label#client-input #client-title {
+    position: absolute;
+    top: 5px; }
+  .client-field label#client-input input {
+    margin-top: 0.5em; }
+
+.client-info .row {
+  padding-top: 2em;
+  padding-bottom: 1em; }
+  .client-info .row .client-pet-name {
+    margin-left: 0.7em; }
+    .client-info .row .client-pet-name h4 {
+      margin: 0px;
+      font-size: 1.5em;
+      color: #342007; }
+    .client-info .row .client-pet-name p {
+      font-size: 1em;
+      color: #b7b7b7; }
+  .client-info .row .avatar-div {
+    margin-top: -0.4em; }
+    .client-info .row .avatar-div .avatar {
+      background-color: #e4983d;
+      border-radius: 30px;
+      width: 50px;
+      height: 50px;
+      color: #ffffff;
+      text-align: center;
+      font-size: 1.5em;
+      padding-top: 15px; }
+  .client-info .row .first-name {
+    margin-top: -2em; }

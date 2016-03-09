@@ -1,7 +1,25 @@
-
-  <ion-view view-title="Login" hide-nav-bar="true" class="login-wrapper">
-   <ion-content class="login-content">
-      <h1>whatsPup</h1>
-       <a ui-sref="clients"> Login </a>
+<ion-view view-title="Login" hide-nav-bar="true" class="login-wrapper">
+    <ion-content class="login-content">
+        <div class="row">
+            <div class="col-80 col-offset-10 logo-div">
+                <h1 class="ion-ios-paw"> whatsPup</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-80 col-offset-10 app-description">
+                <h3>An application for Pet Sitters to provide real-time updates to their clients.</h3>
+                <h3>Become a member with Facebook.</h3>
+            </div>
+        </div>
+          <div class="row">
+            <div class="col-80 col-offset-10 facebook-login">
+                <a ng-click="vm.sitterlogin(facebook)">
+                    <div class="sitterbtn">
+                    <div class="flogin-icon"><i class="ion-social-facebook"></i></div>
+                    <div class="flogin-text">Login</div>
+                    </div>
+                </a>
+           </div>
+        </div>
     </ion-content>
 </ion-view>

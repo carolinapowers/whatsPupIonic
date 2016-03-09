@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('whatsPupIonic', ['ionic'])
+angular.module('whatsPupIonic', ['ionic', 'firebase'])
 
 .run(function($ionicPlatform, $rootScope, $state, $stateParams) {
   $ionicPlatform.ready(function() {
@@ -23,4 +23,9 @@ angular.module('whatsPupIonic', ['ionic'])
   }); 
     $rootScope.$state = $state;
     $rootScope.$stateParams = $stateParams;
+})
+
+.factory("Auth", function($firebaseAuth) {
+  var usersRef = new Firebase("https://whatspup.firebaseio.com/");
+  return $firebaseAuth(usersRef);
 })
