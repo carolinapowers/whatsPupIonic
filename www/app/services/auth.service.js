@@ -14,20 +14,21 @@ angular.module('whatsPupIonic')
     }
         
         function sitterlogin () {
-            Auth.$authWithOAuthRedirect("facebook").then(function (authData) {
-                $state.go('clients');
-            }).catch(function (error) {
-                if (error.code === "TRANSPORT_UNAVAILABLE") {
-                    auth.$authWithOAuthPopup("facebook").then(function (authData) {
-                        $state.go('login');
-                    });
-                } else {
-                    // Another error occurred
-                    $state.go('newVisit');
-                    console.log(error);
-                }
-            });
-        };
+    Auth.$authWithOAuthRedirect("facebook").then(function(authData) {
+      // User successfully logged in
+    }).catch(function(error) {
+      if (error.code === "TRANSPORT_UNAVAILABLE") {
+        Auth.$authWithOAuthPopup("facebook").then(function(authData) {
+          // User successfully logged in. We can log to the console
+          // since we’re using a popup here
+          console.log(authData);
+        });
+      } else {
+        // Another error occurred
+        console.log(error);
+      }
+    });
+};
 
         function logout () {
             auth.unauth();

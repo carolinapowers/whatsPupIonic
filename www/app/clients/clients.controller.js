@@ -13,8 +13,14 @@ function Clients ($scope, auth, clients, $firebaseArray, Auth) {
     }); 
     auth.onAuth(function (user) {
         vm.user = user;
-        return user.$id;
+        if (user === null) {
+            console.log('null')
+        } else {
+            console.log(user.$id)
+            return user.$id;
+        }
     });
+    
     vm.listCanSwipe = true;
     vm.logout = auth.logout;
     vm.clientInitials = clientInitials; 

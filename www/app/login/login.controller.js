@@ -12,7 +12,7 @@ function LoginCtrl (auth, Auth, $scope, $state) {
     vm.logout = auth.logout;
    
     
-    Auth.$onAuth(function(authData) {
+    auth.onAuth(function(authData) {
     if (authData === null) {
       console.log('Not logged in yet');
     } else {
@@ -22,6 +22,7 @@ function LoginCtrl (auth, Auth, $scope, $state) {
     // This will display the user's name in our view
     $scope.authData = authData;
   });
+    
 
       
 }
