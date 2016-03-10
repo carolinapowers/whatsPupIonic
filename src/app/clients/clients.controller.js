@@ -6,6 +6,8 @@ angular
     .module('whatsPupIonic')
     .controller('Clients', Clients);
 
+/** @ngInject */
+    
 function Clients ($scope, auth, clients, $firebaseArray, Auth) {
      var vm = this;
     $scope.$on('$ionicView.beforeEnter', function (event, viewData) {

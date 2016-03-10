@@ -6,6 +6,8 @@
         .module('whatsPupIonic')
         .directive('clientInfo', clientInfo);
 
+/** @ngInject */
+    
     function clientInfo() {
         return {
             restrict: 'E',

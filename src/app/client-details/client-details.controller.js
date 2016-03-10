@@ -5,8 +5,10 @@
 angular
     .module('whatsPupIonic')
     .controller('ClientDetails', ClientDetails);
-
+    
 ClientDetails.$inject=['CONST', '$stateParams','clients', '$firebaseObject'];
+ 
+/** @ngInject */
     
 function ClientDetails (CONST, $stateParams, clients, $firebaseObject) {
     var vm = this;

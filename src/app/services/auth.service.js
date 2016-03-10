@@ -1,5 +1,7 @@
 angular.module('whatsPupIonic')
 
+/** @ngInject */
+
 .factory('auth', function ($firebaseObject, $state, CONST, Auth) {
     var auth = new Firebase(CONST.baseUrl);
     var currentUser = {};

@@ -6,6 +6,8 @@
         .module('whatsPupIonic')
         .directive('clientField', clientField);
 
+/** @ngInject */
+    
     function clientField() {
         return {
             restrict: 'E',

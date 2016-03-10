@@ -5,6 +5,8 @@
 angular
     .module('whatsPupIonic')
     .controller('NewVisit', NewVisit);
+    
+/** @ngInject */    
 
 function NewVisit (clients, $stateParams) {
     var vm = this;

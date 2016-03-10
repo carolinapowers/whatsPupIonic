@@ -5,7 +5,10 @@ angular
     .module('whatsPupIonic')
     .controller('LoginCtrl', LoginCtrl);
 
-LoginCtrl.$inject=['auth', 'Auth','$scope','$state'];    
+LoginCtrl.$inject=['auth', 'Auth','$scope','$state'];
+    
+/** @ngInject */
+    
 function LoginCtrl (auth, Auth, $scope, $state) {
     var vm = this;
     vm.sitterlogin = auth.sitterlogin;
