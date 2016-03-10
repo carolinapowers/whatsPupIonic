@@ -7,21 +7,60 @@ var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var sh = require('shelljs');
 var templateCache = require('gulp-angular-templatecache');
+var uglify = require('gulp-uglify');
+var ngannotate = require('gulp-ng-annotate');
 var minifyHtml = require('gulp-minify-html');
+var minifyCss = require('gulp-minify-css');
+var usemin = require('gulp-usemin');
+var rev = require('gulp-rev');
+var rimraf = require('gulp-rimraf');
+
 
 var paths = {
-  sass: ['./scss/**/*.scss', './www/app/**/*.scss', './www/css/*.scss', './www/app/components/**/*.scss'],
-  templatecache: ['./www/app/**/*.html' ]
+  sass: ['./scss/**/*.scss', './src/app/**/*.scss', './src/css/*.scss', './src/app/components/**/*.scss'],
+  templatecache: ['./src/app/**/*.html' ],
+  scripts: ['./src/app/**/*.js', '!./src/lib/**/*.js'],
+    html: [
+    './src/app/**/*.html',
+    '!./src/index.html',
+    '!./src/lib/**/*.html',
+    './src/lib/ionic/**/*.eot','./src/lib/ionic/**/*.svg' ,'./src/lib/ionic/**/*.ttf', '     ./src/lib/ionic/**/*.woff'    
+  ],
+    index: './src/index.html',
+    libs: ['./src/lib/**/*.js', './src/lib/ionic/**/*.css'],
+    build: './www/'
 };
 
- gulp.task('templatecache', function (done) {
+gulp.task('templatecache', function (done) {
     gulp.src(paths.templatecache)
       .pipe(templateCache({standalone:true}))
       .pipe(gulp.dest('./www/js'))
       .on('end', done);
-  });
+});
+
+//gulp.task('rimraf', function () {
+//    gulp.src(paths.build, {
+//            read: false
+//        })
+//        .pipe(rimraf());
+//});
+
+gulp.task('copy',  function () {
+    gulp.src(paths.html)
+        .pipe(gulp.dest('www/'));
+});
+
+gulp.task('usemin', [ 'copy' ], function(){
+  gulp.src( paths.index )
+    .pipe(usemin({
+      css: [ minifyCss(), 'concat' ],
+      js: [ ngannotate(), uglify() ]
+    }))
+    .pipe(gulp.dest( paths.build ))
+});
 
 
+gulp.task ('build', ['sass', 'templatecache', 'usemin']);
 gulp.task('default', ['sass', 'templatecache']);
 
 gulp.task('sass', function(done) {

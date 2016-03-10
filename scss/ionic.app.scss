@@ -15,7 +15,7 @@ $royal:                           #886aea !default;
 $dark:                            #444 !default;
 */
 
-// The path for our ionicons font files, relative to the built CSS in www/css
+// The path for our ionicons font files, relative to the built CSS in src/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 
 .center {
@@ -39,14 +39,14 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 
 // Include all of Ionic
 
-@import "www/lib/ionic/scss/ionic";
-@import 'www/css/colors.scss';
-@import "www/app/login/login";
-@import "www/app/clients/clients";
-@import "www/app/new-visit/new-visit";
-@import "www/app/new-client/new-client";
-@import "www/app/client-details/client-details";
-@import "www/app/components/client-field/client-field.directive";  
-@import "www/app/components/client-info/client-info.directive";     
+@import "src/lib/ionic/scss/ionic";
+@import 'src/css/colors.scss';
+@import "src/app/login/login";
+@import "src/app/clients/clients";
+@import "src/app/new-visit/new-visit";
+@import "src/app/new-client/new-client";
+@import "src/app/client-details/client-details";
+@import "src/app/components/client-field/client-field.directive";  
+@import "src/app/components/client-info/client-info.directive";     
     
 
