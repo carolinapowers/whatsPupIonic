@@ -1,12 +1,13 @@
 {
   "name": "whatsPupIonic",
   "app_id": "",
+  "documentRoot":"src",
   "gulpStartupTasks": [
     "sass",
     "watch"
   ],
   "watchPatterns": [
-    "www/**/*",
-    "!www/lib/**/*"
+    "src/**/*",
+    "!src/lib/**/*"
   ]
 }
