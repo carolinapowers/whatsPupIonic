@@ -12,6 +12,7 @@ ClientDetails.$inject=['CONST', '$stateParams','clients', '$firebaseObject', '$i
     
 function ClientDetails (CONST, $stateParams, clients, $firebaseObject, $ionicActionSheet, $timeout, $state) {
     var vm = this;
+    var clientUrl = new Firebase(CONST.baseUrl + 'Clients/' + $stateParams.userId + '/' + $stateParams.clientId);
     vm.inputDisplayTitle = CONST.inputDisplayTitle;
    
     clients.getClient($stateParams.userId, $stateParams.clientId)
@@ -31,6 +32,11 @@ function ClientDetails (CONST, $stateParams, clients, $firebaseObject, $ionicAct
        { text: 'Edit' }
      ],
      destructiveText: 'Delete',
+       destructiveButtonClicked: function() {
+       clientUrl.remove();
+       $state.go('clients');
+        return true; //Close the model?
+    },
      cancelText: 'Cancel',
      cancel: function() {
           // add cancel code..
@@ -39,6 +45,9 @@ function ClientDetails (CONST, $stateParams, clients, $firebaseObject, $ionicAct
          if (index === 0) {
             $state.go('newVisit', {userId: user , clientId:client});
             return true;
+         }
+         if (index === 1) {
+             vm.highlightField = true;
          }
      }
    });
