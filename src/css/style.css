@@ -3,3 +3,8 @@
 .larger {
     font-size: 2em;
 }
+
+   .highlight {
+    opacity: 0.6 !important;
+     color: blue !important;
+}

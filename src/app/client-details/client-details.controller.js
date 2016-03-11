@@ -28,10 +28,9 @@ function ClientDetails (CONST, $stateParams, clients, $firebaseObject, $ionicAct
    // Show the action sheet
    var hideSheet = $ionicActionSheet.show({
      buttons: [
-       { text: 'Add New Visit' },
-       { text: 'Edit' }
+       { text: 'Add New Visit' }
      ],
-     destructiveText: 'Delete',
+     destructiveText: 'Delete Client',
        destructiveButtonClicked: function() {
        clientUrl.remove();
        $state.go('clients');
@@ -45,9 +44,6 @@ function ClientDetails (CONST, $stateParams, clients, $firebaseObject, $ionicAct
          if (index === 0) {
             $state.go('newVisit', {userId: user , clientId:client});
             return true;
-         }
-         if (index === 1) {
-             vm.highlightField = true;
          }
      }
    });
