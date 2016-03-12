@@ -32,5 +32,8 @@
   ],
   "cordovaPlatforms": [
     "android"
-  ]
+  ],
+  "scripts": {
+    "build:ios": "gulp clean && gulp build && ionic build ios"
+  }
 }
