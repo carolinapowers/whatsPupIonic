@@ -10,7 +10,9 @@
                 <p>{{vm.clientData.pet}}</p>
             </div>
             <div class="col-10 avatar-div">
-                <div class="avatar">{{}}</div>
+                <div class="avatar"> 
+                <span ng-if="vm.clientData.$id && vm.clientData.name">{{vm.clientInitials(vm.clientData.name)}}</span>
+               <span>{{vm.clientData.firstName | limitTo: 1 | uppercase}}{{vm.clientData.lastName | limitTo: 1 | uppercase}}</span> </div>
             </div>
         </div>
         <div class="list visit-list">

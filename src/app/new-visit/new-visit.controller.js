@@ -11,6 +11,7 @@
     function NewVisit(clients, $stateParams, $http, $ionicPopup, $state) {
         var vm = this;
         vm.treats = false;
+        vm.clientInitials = clientInitials;
         console.log($stateParams);
 
         clients.getClient($stateParams.userId, $stateParams.clientId)
@@ -19,6 +20,15 @@
                 console.log(data);
                 vm.clientData = data;
             });
+        
+         function clientInitials (name) {
+        var name = name.split(' ');
+        if (name.length > 1){
+            return (name[0][0] + name[1][0]);
+        } else {
+            return (name[0][0]);
+        }
+    }
 
         var currentdate = new Date();
 
