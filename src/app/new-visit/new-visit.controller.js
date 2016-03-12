@@ -10,7 +10,10 @@
 
     function NewVisit(clients, $stateParams, $http, $ionicPopup, $state) {
         var vm = this;
+        var checkinTime;
+        var currentdate = new Date();
         vm.treats = false;
+        vm.checkIn = checkIn; 
         vm.clientInitials = clientInitials;
         console.log($stateParams);
 
@@ -20,19 +23,26 @@
                 console.log(data);
                 vm.clientData = data;
             });
+
+        var time = (currentdate.getMonth() + 1) + "/" 
+        + currentdate.getDate() + "/" + currentdate.getFullYear() 
+        + " at " + currentdate.getHours() 
+        + ":" + currentdate.getMinutes() + ":" 
+        + currentdate.getSeconds(); //get time
+    
         
-         function clientInitials (name) {
-        var name = name.split(' ');
-        if (name.length > 1){
-            return (name[0][0] + name[1][0]);
-        } else {
-            return (name[0][0]);
+        function checkIn () {
+           checkinTime = time;
         }
-    }
-
-        var currentdate = new Date();
-
-        var time = (currentdate.getMonth() + 1) + "/" + currentdate.getDate() + "/" + currentdate.getFullYear() + " at " + currentdate.getHours() + ":" + currentdate.getMinutes() + ":" + currentdate.getSeconds(); //get time
+    
+        function clientInitials (name) {
+            var name = name.split(' ');
+            if (name.length > 1){
+                return (name[0][0] + name[1][0]);
+            } else {
+                return (name[0][0]);
+            }
+        }
 
         vm.sendEmail = function () {
             $http({
@@ -66,7 +76,7 @@
                             "global_merge_vars": [
                                 {
                                     "name": "time",
-                                    "content": time
+                                    "content": checkinTime
                         },
                                 {
                                     "name": "food",
