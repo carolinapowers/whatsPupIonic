@@ -13,7 +13,8 @@
                 <div class="row item-icon-right">
                     <div class="col-25 avatar-div">
                         <div class="avatar">
-                        <span ng-if="client.name">{{vm.clientInitials(client.name) | uppercase}}</span>                       <span ng-if="!client.name">{{client.firstName | limitTo:1 | uppercase}}{{client.lastName | limitTo:1 | uppercase}}</span>
+                        <span ng-if="client.name">{{vm.clientInitials(client.name) | uppercase}}</span>                      
+                         <span ng-if="!client.name">{{client.firstName | limitTo:1 | uppercase}}{{client.lastName | limitTo:1 | uppercase}}</span>
                         
                         </div>
                     </div>
