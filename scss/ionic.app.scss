@@ -18,6 +18,19 @@ $dark:                            #444 !default;
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 
+ion-footer-bar.bar-default.footer-bar.bar.bar-footer {
+    text-align: center!important;
+    border-color: black;
+    i {
+        font-size: 28px;
+    }
+    p {
+        font-size: 10px;
+        color: #444;
+        margin-top: -0.7em;
+    }
+}
+
 .center {
     margin-right: auto;
     margin-left: auto;
