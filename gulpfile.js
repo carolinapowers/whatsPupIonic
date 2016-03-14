@@ -17,17 +17,17 @@ var rimraf = require('gulp-rimraf');
 
 
 var paths = {
-  sass: ['./scss/**/*.scss', './src/app/**/*.scss', './src/css/*.scss', './src/app/components/**/*.scss'],
-  templatecache: ['./src/app/**/*.html' ],
-  scripts: ['./src/app/**/*.js', '!./src/lib/**/*.js'],
+  sass: ['./scss/**/*.scss', './www/app/**/*.scss', './www/css/*.scss', './www/app/components/**/*.scss'],
+  templatecache: ['./www/app/**/*.html' ],
+  scripts: ['./www/app/**/*.js', '!./www/lib/**/*.js'],
     html: [
-    './src/app/**/*.html',
-    '!./src/index.html',
-    '!./src/lib/**/*.html',
-    './src/lib/ionic/**/*.eot','./src/lib/ionic/**/*.svg' ,'./src/lib/ionic/**/*.ttf', '     ./src/lib/ionic/**/*.woff'    
+    './www/app/**/*.html',
+    '!./www/index.html',
+    '!./www/lib/**/*.html',
+    './www/lib/ionic/**/*.eot','./www/lib/ionic/**/*.svg' ,'./www/lib/ionic/**/*.ttf', '     ./www/lib/ionic/**/*.woff'    
   ],
-    index: './src/index.html',
-    libs: ['./src/lib/**/*.js', './src/lib/ionic/**/*.css'],
+    index: './www/index.html',
+    libs: ['./www/lib/**/*.js', './www/lib/ionic/**/*.css'],
     build: './www/'
 };
 
@@ -39,7 +39,7 @@ gulp.task('templatecache', function (done) {
 });
 
 //gulp.task('rimraf', function () {
-//    gulp.src(paths.build, {
+//    gulp.www(paths.build, {
 //            read: false
 //        })
 //        .pipe(rimraf());
