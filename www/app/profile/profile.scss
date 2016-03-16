@@ -1,0 +1,33 @@
+.profile{
+    text-align:center;
+    header {
+        background-color: $main-color;
+        height: 100px;
+    }
+    .img-div {
+        text-align:center;
+       
+    }
+    img {
+        border-radius: 100px;
+        border: 6px solid white;
+        margin-top: -4em;
+    }
+    
+    .logout-button {
+        background-color: #fff;
+        font-size: 1.3em;
+        border: 0.164em solid #e4983d;
+        display: inline-block;
+        margin-top: 3em;
+        border-radius: 5px;
+        padding: 8px 84px;
+        
+        a {
+            color: $main-color;
+            font-weight: 500;
+        }
+    }
+}
+    
+    
