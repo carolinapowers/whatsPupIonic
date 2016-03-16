@@ -13,18 +13,19 @@ var minifyHtml = require('gulp-minify-html');
 var minifyCss = require('gulp-minify-css');
 var usemin = require('gulp-usemin');
 var rev = require('gulp-rev');
-var rimraf = require('gulp-rimraf');
-
+var del = require('del');
+var inject = require('gulp-inject');
 
 var paths = {
   sass: ['./scss/**/*.scss', './src/app/**/*.scss', './src/css/*.scss', './src/app/components/**/*.scss'],
   templatecache: ['./src/app/**/*.html' ],
   scripts: ['./src/app/**/*.js', '!./src/lib/**/*.js'],
+  fonts: ['./src/lib/ionic/fonts/*.*'],
     html: [
     './src/app/**/*.html',
     '!./src/index.html',
     '!./src/lib/**/*.html',
-    './src/lib/ionic/**/*.eot','./src/lib/ionic/**/*.svg' ,'./src/lib/ionic/**/*.ttf', '     ./src/lib/ionic/**/*.woff'    
+    './src/lib/ionic/**/*.eot','./src/lib/ionic/**/*.svg' ,'./src/lib/ionic/**/*.ttf', '     ./src/lib/ionic/**/*.woff'
   ],
     index: './src/index.html',
     libs: ['./src/lib/**/*.js', './src/lib/ionic/**/*.css'],
@@ -33,34 +34,50 @@ var paths = {
 
 gulp.task('templatecache', function (done) {
     gulp.src(paths.templatecache)
-      .pipe(templateCache({standalone:true}))
-      .pipe(gulp.dest('./www/js'))
+      .pipe(templateCache({
+        module: 'whatsPupIonic',
+        standalone: false,
+        root: 'app'
+      }))
+      .pipe(gulp.dest('./www/scripts'))
       .on('end', done);
 });
 
-//gulp.task('rimraf', function () {
-//    gulp.src(paths.build, {
-//            read: false
-//        })
-//        .pipe(rimraf());
-//});
-
-gulp.task('copy',  function () {
-    gulp.src(paths.html)
-        .pipe(gulp.dest('www/'));
+gulp.task('clean', function () {
+    return del([
+      paths.build
+    ]);
 });
 
-gulp.task('usemin', [ 'copy' ], function(){
+gulp.task('copy-fonts', function(){
+  return gulp.src(paths.fonts)
+    .pipe(gulp.dest('./www/lib/ionic/fonts/'));
+})
+
+// we dont need to copy the html because that is inside the templates.js
+/*gulp.task('copy',  function () {
+    gulp.src(paths.html)
+        .pipe(gulp.dest('www/'));
+});*/
+
+gulp.task('inject', ['package'], function(){
+  var target = gulp.src('./www/index.html');
+  var sources = gulp.src(['./www/scripts/templates.js']);
+  return target.pipe(inject(sources, {relative: true}))
+    .pipe(gulp.dest('./www'));
+})
+
+gulp.task('usemin', function(){
   gulp.src( paths.index )
     .pipe(usemin({
       css: [ minifyCss(), 'concat' ],
       js: [ ngannotate(), uglify() ]
     }))
-    .pipe(gulp.dest( paths.build ))
+    .pipe(gulp.dest(paths.build))
 });
 
-
-gulp.task ('build', ['sass', 'templatecache', 'usemin']);
+gulp.task('build', ['inject']);
+gulp.task ('package', ['sass', 'templatecache', 'usemin', 'copy-fonts']);
 gulp.task('default', ['sass', 'templatecache']);
 
 gulp.task('sass', function(done) {
