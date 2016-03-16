@@ -1,7 +1,7 @@
 angular.module('whatsPupIonic')
 
+/** @ngInject */
 .factory('clients', function ($firebaseArray, Auth, $firebaseObject) {
-
     return { 
         addClient : addClient,
         deleteClient: deleteClient,
@@ -19,7 +19,7 @@ angular.module('whatsPupIonic')
         return $firebaseObject(oneClient);
     }
     
-    function addClient (newClient) {
+    function addClient (clients, newClient) {
         clients.$add(newClient);
         return this.newClient = {
             name: '',

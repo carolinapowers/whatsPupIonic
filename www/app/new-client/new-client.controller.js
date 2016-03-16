@@ -6,6 +6,8 @@ angular
     .module('whatsPupIonic')
     .controller('NewClient', NewClient);
 
+/** @ngInject */
+    
 function NewClient (CONST, clients, auth) {
     var vm = this;
      auth.onAuth(function (user) {
@@ -15,7 +17,8 @@ function NewClient (CONST, clients, auth) {
     vm.clientData = {};
     vm.inputTitle = CONST.inputDisplayTitle;
     vm.clients = clients.getClients(vm.user.$id);
-    vm.addClient= addClient;
+    //vm.addClient= addClient;
+    vm.addClient = clients.addClient;
     
        function addClient (clientData) {
         vm.clients.$add(clientData);

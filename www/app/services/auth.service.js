@@ -1,5 +1,7 @@
 angular.module('whatsPupIonic')
 
+/** @ngInject */
+
 .factory('auth', function ($firebaseObject, $state, CONST, Auth) {
     var auth = new Firebase(CONST.baseUrl);
     var currentUser = {};
@@ -10,7 +12,7 @@ angular.module('whatsPupIonic')
         logout: logout,
         loggedIn: loggedIn,
         getUser: getUser,
-        updateUser:updateUser
+        updateUser:updateUser,
     }
         
     function sitterlogin () {
@@ -29,6 +31,7 @@ angular.module('whatsPupIonic')
           }
         });
     };
+
 
         function logout () {
             auth.unauth();

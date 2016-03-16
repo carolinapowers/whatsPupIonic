@@ -3,9 +3,9 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('whatsPupIonic', ['ionic', 'firebase'])
+angular.module('whatsPupIonic', ['ngCordova', 'ionic', 'firebase', 'ngAnimate' ])
 
-.run(function($ionicPlatform, $rootScope, $state, $stateParams) {
+.run(function($ionicPlatform, $rootScope, $state, $stateParams,  $ionicSideMenuDelegate) {
   $ionicPlatform.ready(function() {
     if(window.cordova && window.cordova.plugins.Keyboard) {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard

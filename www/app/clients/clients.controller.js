@@ -6,7 +6,9 @@ angular
     .module('whatsPupIonic')
     .controller('Clients', Clients);
 
-function Clients ($scope, auth, clients, $firebaseArray, Auth) {
+/** @ngInject */
+    
+function Clients ($scope, auth, clients, $firebaseArray, Auth, $ionicSideMenuDelegate) {
      var vm = this;
     $scope.$on('$ionicView.beforeEnter', function (event, viewData) {
         viewData.enableBack = false;
@@ -35,5 +37,9 @@ function Clients ($scope, auth, clients, $firebaseArray, Auth) {
         }
     }
 }
+//    
+//     vm.openMenu = function () {
+//    $ionicSideMenuDelegate.toggleLeft();
+//  };
 
 })();

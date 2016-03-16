@@ -1,6 +1,6 @@
 <ion-view view-title="New Visit" class="new-visit">
     <ion-nav-buttons side="right">
-        <button class="button" ui-sref="clients">Done</i>
+        <button class="button" ng-click="vm.sendEmail()">Send</i>
         </button>
     </ion-nav-buttons>
     <ion-content>
@@ -8,9 +8,13 @@
             <div class="col-80 col-offset-10 client-pet-name">
                 <h4>{{vm.clientData.name}}{{vm.clientData.firstName}}</h4>
                 <p>{{vm.clientData.pet}}</p>
+                <p id="checkIn" ng-if="vm.checkinTime">Checked In</p> 
+                <span>{{vm.checkinTime}}</span>
             </div>
             <div class="col-10 avatar-div">
-                <div class="avatar">CP</div>
+                <div class="avatar"> 
+                <span ng-if="vm.clientData.$id && vm.clientData.name">{{vm.clientInitials(vm.clientData.name)}}</span>
+               <span>{{vm.clientData.firstName | limitTo: 1 | uppercase}}{{vm.clientData.lastName | limitTo: 1 | uppercase}}</span> </div>
             </div>
         </div>
         <div class="list visit-list">
@@ -23,7 +27,7 @@
                     <p class="input-title">Fresh Food and Water</p>
                     <span class="input-label">Food</span>
                     <label class="toggle toggle-energized food-toggle">
-                        <input type="checkbox">
+                        <input type="checkbox" ng-model="vm.food">
                         <div class="track">
                             <div class="handle"></div>
                         </div>
@@ -31,7 +35,7 @@
                 </div>
                 <span class="input-label toggle-label">Water</span>
                 <label class="toggle toggle-energized toggle-food">
-                    <input type="checkbox">
+                    <input type="checkbox" ng-model="vm.water">
                     <div class="track">
                         <div class="handle"></div>
                     </div>
@@ -39,19 +43,23 @@
             </li><!--item-toggle-->
             <label class="item item-input item-select">
                 <span class="input-title">Play Time or Walk Duration</span>
-                <select>
-                    <option>Option 1</option>
-                    <option selected>Option 2</option>
-                    <option>Option 3</option>
+                <select ng-model="vm.play">
+                    <option value="N/A">N/A</option>
+                    <option value="5 Minutes">5 Minutes</option>
+                    <option value="10 Minutes">10 Minutes</option>
+                    <option value="15 Minutes">15 Minutes</option>
+                    <option value="20 Minutes">20 Minutes</option>
+                    <option value="25 Minutes">25 Minutes</option>
+                    <option value="30 Minutes">30 Minutes</option>
                 </select>
             </label><!--play time or walk Duration-->
             <li class="item item-toggle">
                 <div class="first-toggle-item" style="padding-top: 0.5em;">
                     <p class="input-title">Treats</p>
-                    <span class="input-label" ng-if="vm.yesTreat">Yes</span>
-                    <span class="input-label" ng-if="vm.yesTreat === false">No</span>
+                    <span class="input-label" ng-if="vm.treats">Yes</span>
+                    <span class="input-label" ng-if="vm.treats === false">No</span>
                     <label class="toggle toggle-energized food-toggle">
-                        <input type="checkbox" ng-model="vm.yesTreat">
+                        <input type="checkbox" ng-model="vm.treats">
                         <div class="track">
                             <div class="handle"></div>
                         </div>
@@ -60,10 +68,9 @@
             </li><!--item-toggle-->
             <label class="item item-input item-select">
                 <span class="input-title">Medications</span>
-                <select>
-                    <option selected>NA</option>
-                    <option>Option 2</option>
-                    <option>Option 3</option>
+                <select ng-model="vm.meds">
+                    <option value="N/A">N/A</option>
+                    <option value="Yes">Yes</option>
                 </select>
             </label><!--medications-->
             <li class="item item-toggle">
@@ -71,7 +78,7 @@
                     <p class="input-title">Miscelaneous Tasks</p>
                     <span class="input-label">Cleaned Up Pet Mess</span>
                     <label class="toggle toggle-energized food-pet-mess">
-                        <input type="checkbox">
+                        <input type="checkbox" ng-model="vm.mess">
                         <div class="track">
                             <div class="handle"></div>
                         </div>
@@ -80,7 +87,7 @@
                 <div>
                     <span class="input-label toggle-label">Packages/Mail Moved Inside</span>
                     <label class="toggle toggle-energized toggle-food">
-                        <input type="checkbox">
+                        <input type="checkbox" ng-model="vm.mail">
                         <div class="track">
                             <div class="handle"></div>
                         </div>
@@ -89,7 +96,7 @@
                 <div>
                     <span class="input-label toggle-label">Watered Plants</span>
                     <label class="toggle toggle-energized toggle-plants">
-                        <input type="checkbox">
+                        <input type="checkbox" ng-model="vm.plants">
                         <div class="track">
                             <div class="handle"></div>
                         </div>
@@ -98,7 +105,7 @@
                 <div>
                     <span class="input-label toggle-label">Other(See Message)</span>
                     <label class="toggle toggle-energized toggle-other">
-                        <input type="checkbox">
+                        <input type="checkbox" ng-model="vm.other">
                         <div class="track">
                             <div class="handle"></div>
                         </div>
@@ -107,23 +114,24 @@
             </li><!--item-toggle-->   
             <label class="item item-input">
                 <span class="input-title">Message</span>
-                <textarea maxlength="280" rows="5"></textarea> 
+                <textarea maxlength="280" rows="5" ng-model="vm.message"></textarea> 
             </label>
         </div><!--list-->
+        
+        <div class="card" ng-if="vm.imgSrc">
+           <div class="item item-image">
+               <img ng-src="{{vm.imgSrc}}"/>
+           </div>  
+        </div>
     </ion-content>
-    <ion-tabs class="tabs-default tabs-icon-top">
-
-        <ion-tab title="Check In" icon="ion-ios-location-outline">
-        <!-- Tab 1 content -->
-        </ion-tab>
-
-        <ion-tab title="Camera" icon="ion-ios-camera-outline">
-        <!-- Tab 2 content -->
-        </ion-tab>
-
-        <ion-tab title="Track Walk" icon="ion-map">
-        <!-- Tab 3 content -->
-        </ion-tab>
-
-    </ion-tabs>
+    <ion-footer-bar class="bar-stable footer-bar new-visit-footer">
+        <div class="col-50">
+            <i class="ion-ios-location-outline location-icon" ng-click="vm.checkIn()"></i>
+            <p>Check In</p>
+        </div>
+        <div class="col-50">
+            <i class="ion-ios-camera-outline camera-icon" ng-click="vm.takePicture()"></i>
+            <p>Camera</p>
+        </div>
+    </ion-footer-bar>
 </ion-view>

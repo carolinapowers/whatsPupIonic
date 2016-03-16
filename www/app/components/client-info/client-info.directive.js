@@ -6,13 +6,15 @@
         .module('whatsPupIonic')
         .directive('clientInfo', clientInfo);
 
+/** @ngInject */
+    
     function clientInfo() {
         return {
             restrict: 'E',
             templateUrl: 'app/components/client-info/client-info.directive.html',
             scope: {
                 clientData: '=',
-                inputTitle: '=',
+                inputTitle: '='
             },
             link: link
         };

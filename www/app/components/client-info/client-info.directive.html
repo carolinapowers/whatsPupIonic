@@ -6,8 +6,10 @@
         </div>
         <div class="col-10 avatar-div">
             <div class="avatar">
-               <span ng-if="!clientData.firstName && !clientData.lastName && !clientData.$id">?</span>
-               <span ng-if="clientData.$id">{{clientInitials(clientData.name)}}</span>    {{clientData.firstName | limitTo: 1 | uppercase}}{{clientData.lastName | limitTo: 1 | uppercase}}
+               <span ng-if="!clientData.name && !clientData.$id && !clientData.firstName">?</span>
+               <span ng-if="clientData.$id && clientData.name">{{clientInitials(clientData.name)}}</span>
+               <span>{{clientData.firstName | limitTo: 1 | uppercase}}{{clientData.lastName | limitTo: 1 | uppercase}}</span> 
+
             </div>
         </div>
     </div>

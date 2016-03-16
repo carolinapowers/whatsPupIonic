@@ -18,6 +18,21 @@ $dark:                            #444 !default;
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 
+$energized: #e4983d !default;
+
+ion-footer-bar.bar-stable.footer-bar.bar.bar-footer {
+    text-align: center!important;
+    border-color: black;
+    i {
+        font-size: 28px;
+    }
+    p {
+        font-size: 10px;
+        color: #444;
+        margin-top: -0.7em;
+    }
+}
+
 .center {
     margin-right: auto;
     margin-left: auto;
@@ -46,6 +61,8 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 @import "www/app/new-visit/new-visit";
 @import "www/app/new-client/new-client";
 @import "www/app/client-details/client-details";
+@import "www/app/profile/profile";
+@import "www/app/info/info";
 @import "www/app/components/client-field/client-field.directive";  
 @import "www/app/components/client-info/client-info.directive";     
     

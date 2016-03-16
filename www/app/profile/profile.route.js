@@ -6,10 +6,10 @@
         .module ('whatsPupIonic')
         .config(function ($stateProvider){
          $stateProvider
-          .state('main', {
-             url: '/',
-             templateUrl: 'app/main/main.html',
-             controller: 'Main',
+          .state('profile', {
+             url: '/profile',
+             templateUrl: 'app/profile/profile.html',
+             controller: 'Profile',
              controllerAs: 'vm'
          })
     })
