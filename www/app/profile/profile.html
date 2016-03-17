@@ -1,0 +1,14 @@
+<ion-view view-title="Profile" class="profile">
+    <ion-content>
+       <header>   
+       </header> 
+        <div class="img-div">
+            <img ng-src="{{vm.authData.avatarUrl}}">
+        </div>
+        <h2>{{vm.authData.fullName}}</h2>
+        <p>You have a total of {{vm.numberOfClients}} clients.</p>
+        <button class="logout-button">
+            <a ng-click="vm.logout()">Logout</a>
+        </button>
+    </ion-content>  
+</ion-view>

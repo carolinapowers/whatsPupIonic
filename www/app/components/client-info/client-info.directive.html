@@ -1,0 +1,26 @@
+<div class="client-info">
+    <div class="row">
+        <div class="col-80 col-offset-10 client-pet-name">
+            <h4>{{clientData.firstName }} {{clientData.lastName}}{{clientData.name}}</h4>
+            <p>{{clientData.pet}}</p>
+        </div>
+        <div class="col-10 avatar-div">
+            <div class="avatar">
+               <span ng-if="!clientData.name && !clientData.$id && !clientData.firstName">?</span>
+               <span ng-if="clientData.$id && clientData.name">{{clientInitials(clientData.name)}}</span>
+               <span>{{clientData.firstName | limitTo: 1 | uppercase}}{{clientData.lastName | limitTo: 1 | uppercase}}</span> 
+
+            </div>
+        </div>
+    </div>
+     <client-field ng-if="!clientData.$id" field-value="clientData.firstName" field-title="inputTitle.firstName"></client-field>
+    <client-field ng-if="!clientData.$id" field-value="clientData.lastName" field-title="inputTitle.lastName"></client-field>
+    <client-field field-value="clientData.pet" field-title="inputTitle.pet"></client-field>
+    <client-field field-value="clientData.email" field-title="inputTitle.email"></client-field>
+    <client-field field-value="clientData.phone" field-title="inputTitle.phone"></client-field>
+    <client-field field-value="clientData.street" field-title="inputTitle.address"></client-field>
+    <client-field field-value="clientData.city" field-title="inputTitle.city"></client-field>
+    <client-field field-value="clientData.state" field-title="inputTitle.state"></client-field>
+    <client-field field-value="clientData.zip" field-title="inputTitle.zipCode"></client-field>
+    <client-field field-value="clientData.message" field-title="inputTitle.message"></client-field>
+</div>
