@@ -22,6 +22,7 @@ var paths = {
   scripts: ['./src/app/**/*.js', '!./src/lib/**/*.js'],
   fonts: ['./src/lib/ionic/**/*.*'],
   cordova: ['./src/lib/ngCordova/**/*.*'],
+  images: ['./src/img/*.*'] ,   
     html: [
     './src/app/**/*.html',
     '!./src/index.html',
@@ -60,6 +61,11 @@ gulp.task('copy-cordova', function(){
     .pipe(gulp.dest('./www/lib/ngCordova/'));
 })
 
+gulp.task('copy-images', function(){
+  return gulp.src(paths.images)
+    .pipe(gulp.dest('./www/img/'));
+})
+
 // we dont need to copy the html because that is inside the templates.js
 /*gulp.task('copy',  function () {
     gulp.src(paths.html)
@@ -83,7 +89,7 @@ gulp.task('usemin', function(){
 });
 
 gulp.task('build', ['inject']);
-gulp.task ('package', ['sass', 'templatecache', 'usemin', 'copy-fonts', 'copy-cordova']);
+gulp.task ('package', ['sass', 'templatecache', 'usemin', 'copy-fonts', 'copy-cordova', 'copy-images']);
 gulp.task('default', ['sass', 'templatecache']);
 
 gulp.task('sass', function(done) {
