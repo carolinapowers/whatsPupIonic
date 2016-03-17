@@ -8,9 +8,9 @@
 
     <!-- compiled css output -->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
-    <!-- build:css style.css -->
     <link href="css/ionic.app.css" rel="stylesheet">
-     <!-- endbuild -->
+    <!-- build:css css/style.css -->
+    <!-- endbuild -->
 
     <!-- ionic/angularjs js -->
 
@@ -32,7 +32,7 @@
     <ion-nav-view ng-class="{'has-header': $current.$state.name === login}"></ion-nav-view>
 
   </body>
-    <!-- build:js scripts/lib.js -->
+    <!-- build:js app/lib.js -->
      <!--bower:js-->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
     <script src="lib/firebase/firebase.js"></script>
@@ -40,7 +40,7 @@
     <!--endbower-->
     <!--endbuild-->
 
-    <!--build:js1 scripts/scripts.js-->
+    <!--build:js1 app/scripts.js-->
     <script src="app/app.js"></script>
     <script src="app/client-details/client-details.controller.js"></script>
     <script src="app/clients/clients.controller.js"></script>

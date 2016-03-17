@@ -20,7 +20,7 @@ var paths = {
   sass: ['./scss/**/*.scss', './src/app/**/*.scss', './src/css/*.scss', './src/app/components/**/*.scss'],
   templatecache: ['./src/app/**/*.html' ],
   scripts: ['./src/app/**/*.js', '!./src/lib/**/*.js'],
-  fonts: ['./src/lib/ionic/fonts/*.*'],
+  fonts: ['./src/lib/ionic/**/*.*'],
     html: [
     './src/app/**/*.html',
     '!./src/index.html',
@@ -39,7 +39,7 @@ gulp.task('templatecache', function (done) {
         standalone: false,
         root: 'app'
       }))
-      .pipe(gulp.dest('./www/scripts'))
+      .pipe(gulp.dest('./www/app'))
       .on('end', done);
 });
 
@@ -51,7 +51,7 @@ gulp.task('clean', function () {
 
 gulp.task('copy-fonts', function(){
   return gulp.src(paths.fonts)
-    .pipe(gulp.dest('./www/lib/ionic/fonts/'));
+    .pipe(gulp.dest('./www/lib/ionic/'));
 })
 
 // we dont need to copy the html because that is inside the templates.js
@@ -62,7 +62,7 @@ gulp.task('copy-fonts', function(){
 
 gulp.task('inject', ['package'], function(){
   var target = gulp.src('./www/index.html');
-  var sources = gulp.src(['./www/scripts/templates.js']);
+  var sources = gulp.src(['./www/app/templates.js']);
   return target.pipe(inject(sources, {relative: true}))
     .pipe(gulp.dest('./www'));
 })
