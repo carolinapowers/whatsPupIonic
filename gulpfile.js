@@ -13,54 +13,83 @@ var minifyHtml = require('gulp-minify-html');
 var minifyCss = require('gulp-minify-css');
 var usemin = require('gulp-usemin');
 var rev = require('gulp-rev');
-var rimraf = require('gulp-rimraf');
-
+var del = require('del');
+var inject = require('gulp-inject');
 
 var paths = {
-  sass: ['./scss/**/*.scss', './www/app/**/*.scss', './www/css/*.scss', './www/app/components/**/*.scss'],
-  templatecache: ['./www/app/**/*.html' ],
-  scripts: ['./www/app/**/*.js', '!./www/lib/**/*.js'],
+  sass: ['./scss/**/*.scss', './src/app/**/*.scss', './src/css/*.scss', './src/app/components/**/*.scss'],
+  templatecache: ['./src/app/**/*.html' ],
+  scripts: ['./src/app/**/*.js', '!./src/lib/**/*.js'],
+  fonts: ['./src/lib/ionic/**/*.*'],
+  cordova: ['./src/lib/ngCordova/**/*.*'],
+  images: ['./src/img/*.*'] ,   
     html: [
-    './www/app/**/*.html',
-    '!./www/index.html',
-    '!./www/lib/**/*.html',
-    './www/lib/ionic/**/*.eot','./www/lib/ionic/**/*.svg' ,'./www/lib/ionic/**/*.ttf', '     ./www/lib/ionic/**/*.woff'    
+    './src/app/**/*.html',
+    '!./src/index.html',
+    '!./src/lib/**/*.html',
+    './src/lib/ionic/**/*.eot','./src/lib/ionic/**/*.svg' ,'./src/lib/ionic/**/*.ttf', '     ./src/lib/ionic/**/*.woff'
   ],
-    index: './www/index.html',
-    libs: ['./www/lib/**/*.js', './www/lib/ionic/**/*.css'],
+    index: './src/index.html',
+    libs: ['./src/lib/**/*.js', './src/lib/ionic/**/*.css'],
     build: './www/'
 };
 
 gulp.task('templatecache', function (done) {
     gulp.src(paths.templatecache)
-      .pipe(templateCache({standalone:true}))
-      .pipe(gulp.dest('./www/js'))
+      .pipe(templateCache({
+        module: 'whatsPupIonic',
+        standalone: false,
+        root: 'app'
+      }))
+      .pipe(gulp.dest('./www/app'))
       .on('end', done);
 });
 
-//gulp.task('rimraf', function () {
-//    gulp.www(paths.build, {
-//            read: false
-//        })
-//        .pipe(rimraf());
-//});
-
-gulp.task('copy',  function () {
-    gulp.src(paths.html)
-        .pipe(gulp.dest('www/'));
+gulp.task('clean', function () {
+    return del([
+      paths.build
+    ]);
 });
 
-gulp.task('usemin', [ 'copy' ], function(){
+gulp.task('copy-fonts', function(){
+  return gulp.src(paths.fonts)
+    .pipe(gulp.dest('./www/lib/ionic/'));
+})
+
+gulp.task('copy-cordova', function(){
+  return gulp.src(paths.cordova)
+    .pipe(gulp.dest('./www/lib/ngCordova/'));
+})
+
+gulp.task('copy-images', function(){
+  return gulp.src(paths.images)
+    .pipe(gulp.dest('./www/img/'));
+})
+
+// we dont need to copy the html because that is inside the templates.js
+/*gulp.task('copy',  function () {
+    gulp.src(paths.html)
+        .pipe(gulp.dest('www/'));
+});*/
+
+gulp.task('inject', ['package'], function(){
+  var target = gulp.src('./www/index.html');
+  var sources = gulp.src(['./www/app/templates.js']);
+  return target.pipe(inject(sources, {relative: true}))
+    .pipe(gulp.dest('./www'));
+})
+
+gulp.task('usemin', function(){
   gulp.src( paths.index )
     .pipe(usemin({
       css: [ minifyCss(), 'concat' ],
       js: [ ngannotate(), uglify() ]
     }))
-    .pipe(gulp.dest( paths.build ))
+    .pipe(gulp.dest(paths.build))
 });
 
-
-gulp.task ('build', ['sass', 'templatecache', 'usemin']);
+gulp.task('build', ['inject']);
+gulp.task ('package', ['sass', 'templatecache', 'usemin', 'copy-fonts', 'copy-cordova', 'copy-images']);
 gulp.task('default', ['sass', 'templatecache']);
 
 gulp.task('sass', function(done) {
