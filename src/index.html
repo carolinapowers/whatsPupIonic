@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>whatsPup</title>
+
+
+    <!-- compiled css output -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <!-- build:css style.css -->
+    <link href="css/ionic.app.css" rel="stylesheet">
+    <!-- build:css css/style.css -->
+    <!-- endbuild -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="lib/ngCordova/dist/ng-cordova.js"></script>
+    <script src="cordova.js"></script>
+    <!-- your app's js -->
+
+  </head>
+  <body ng-app="whatsPupIonic">
+    <ion-nav-bar class="bar main-color">
+       <ion-nav-back-button ng-hide="$state.$current.name === 'profile' || $state.$current.name === 'info'">
+            <i class="ion-ios-arrow-back"></i>
+            Back
+      </ion-nav-back-button>
+    </ion-nav-bar>
+
+   <ion-nav-view ng-class="{'has-header': $state.$current.name === login}"></ion-nav-view>
+
+   <ion-footer-bar class="bar-stable footer-bar" ng-hide="$state.$current.name === 'newVisit' || $state.$current.name === 'login'">
+        <div class="col-33" ui-sref="clients">
+            <i class="ion-ios-home-outline camera-icon" ></i>
+            <p>Home</p>
+        </div>
+        <div class="col-33" ui-sref="profile">
+            <i class="ion-ios-person-outline location-icon"></i>
+            <p>Profile</p>
+        </div>
+        <div class="col-33" ui-sref="info">
+            <i class="ion-ios-information-outline camera-icon"></i>
+            <p>Info</p>
+        </div>
+    </ion-footer-bar>
+  </body>
+    <!-- build:js app/lib.js -->
+     <!--bower:js-->
+
+    <script src="lib/firebase/firebase.js"></script>
+    <script src="lib/angularfire/dist/angularfire.js"></script>
+    <script src="lib/angular-animate/angular-animate.min.js"></script>
+    <!--endbower-->
+    <!--endbuild-->
+
+    <!--build:js1 app/scripts.js-->
+    <script src="app/app.js"></script>
+    <script src="app/client-details/client-details.controller.js"></script>
+    <script src="app/clients/clients.controller.js"></script>
+    <script src="app/login/login.controller.js"></script>
+    <script src="app/new-client/new-client.controller.js"></script>
+    <script src="app/new-visit/new-visit.controller.js"></script>
+    <script src="app/client-details/client-details.route.js"></script>
+    <script src="app/profile/profile.controller.js"></script>
+    <script src="app/info/info.controller.js"></script>
+    <script src="app/info/info.route.js"></script>
+    <script src="app/profile/profile.route.js"></script>
+    <script src="app/clients/clients.route.js"></script>
+    <script src="app/login/login.route.js"></script>
+    <script src="app/new-client/new-client.route.js"></script>
+    <script src="app/new-visit/new-visit.route.js"></script>
+    <script src="app/components/client-field/client-field.directive.js"></script>
+    <script src="app/components/client-info/client-info.directive.js"></script>
+    <script src="app/services/CONST/CONST.constant.js"></script>
+    <script src="app/services/auth.service.js"></script>
+    <script src="app/services/clients.service.js"></script>
+    <!--endbuild-->
+    <!-- inject:js -->
+    <!-- endinject -->
+</html>
