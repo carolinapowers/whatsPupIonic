@@ -70,91 +70,32 @@
         }
 
         vm.sendEmail = function () {
+            var visitData = {
+                to: vm.clientData.email,
+                time: time,
+                food: vm.food ? "Yes": "No",
+                water: vm.water ? "Yes": "No",
+                play: vm.play ? this.play: "N/A",    
+                treats: vm.treats ? "Yes": "No",
+                meds: vm.meds ? this.meds: "N/A",
+                mess: vm.mess ? "Yes": "N/A",
+                mail: vm.mail ? "Yes": "No",
+                packages: vm.packages ? "/Yes": " ", 
+                plants: vm.plants ? "Yes": "No",
+                other: vm.other ? "See Message": "No",
+                message: vm.message ? this.message: "Your Pet misses you!",
+                image: vm.image
+            }
             $http({
-                    method: "POST",
-                    url: "https://mandrillapp.com/api/1.0/messages/send-template.json",
-                    data: {
-                        'key': 'SjfF7oGr1BHLUnBlnSF20A',
-                        "template_name": "whatspup1",
-                        "template_content": [
-                            {
-                                "name": "example name",
-                                "content": "example content"
-                        }
-                    ],
-                        'message': {
-                            'from_email': 'whatspupupdate@gmail.com',
-                            'from_name': 'WhatsPup',
-                            'headers': {
-                                'Reply-To': 'whatspupupdate@gmail.com'
-                            },
-
-                            'subject': 'New Visit Update from WhatsPup',
-
-                            'to': [
-                                {
-                                    'email': vm.clientData.email,
-                                    'name': 'name',
-                                    'type': 'to'
-                        }],
-
-                            "global_merge_vars": [
-                                {
-                                    "name": "time",
-                                    "content": vm.checkinTime
-                        },
-                                {
-                                    "name": "food",
-                                    "content": vm.food
-                        },
-                                {
-                                    "name": "water",
-                                    "content": vm.water
-                        },
-                                {
-                                    "name": "play",
-                                    "content": vm.play
-                        },
-                                {
-                                    "name": "treats",
-                                    "content": vm.treats
-                        },
-                                {
-                                    "name": "meds",
-                                    "content": vm.meds
-                        },
-                                {
-                                    "name": "mess",
-                                    "content": vm.mess
-                        },
-                                {
-                                    "name": "mail",
-                                    "content": vm.mail
-                        },
-                                {
-                                    "name": "plants",
-                                    "content": vm.plants
-                        },
-                                {
-                                    "name": "other",
-                                    "content": vm.other
-                        },
-                                {
-                                    "name": "message",
-                                    "content": vm.message
-                        },
-                                {
-                                    "name": "image",
-                                    "content":  vm.imgSrc
-                        }
-                    ]
-                        }
-                    }
-                })
+                method: "POST",
+                url: "https://polar-scrubland-63183.herokuapp.com/api/email",
+                data: visitData        
+            })
                 .success(function (response) {
                 $ionicPlatform.ready(function() {
                     $cordovaDialogs.alert('Email sent! Thanks for using whatsPup!','Success', 'Ok')
                    .then(function (response) {
+                        console.log(response, visitData);
                         $state.go('clients');
                     })
                 })
