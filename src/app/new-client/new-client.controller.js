@@ -33,13 +33,6 @@ function NewClient (CONST, clients, auth) {
             zip: '',
             sitterUid: ''
         };
-    };
-    
-    
-    
-    
-    
+    };  
 }
-    
-
 })();
