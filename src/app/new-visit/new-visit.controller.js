@@ -50,9 +50,8 @@
 
             $cordovaCamera.getPicture(options).then(function(imageData) {
               vm.imgSrc = "data:image/jpeg;base64," + imageData;
-              //vm.imgSrc = imageData;
             }, function(err) {
-                error = err;
+              // error
             });
            };
            });
@@ -85,8 +84,7 @@
                 plants: vm.plants ? "Yes": "No",
                 other: vm.other ? "See Message": "No",
                 message: vm.message ? this.message: "Your Pet misses you!",
-                image: vm.imgSrc,                       
-                 //image:"http://res.cloudinary.com/whatspup/image/upload/v1467427025/kdvohnlyigs7gpo1dkfg.jpg"
+                image: vm.imgSrc
             }
             $http({
                 method: "POST",
@@ -103,7 +101,7 @@
                 })
                 .error(function (response) {
                   $ionicPlatform.ready(function() {
-                    $cordovaDialogs.alert(vm.imgSrc ,'Oooops!', 'Ok')
+                    $cordovaDialogs.alert('There was a problem sending the visit. Try it again! ','Oooops!', 'Ok')
                 })
                 });
         }
