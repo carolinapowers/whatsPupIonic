@@ -50,6 +50,7 @@
 
             $cordovaCamera.getPicture(options).then(function(imageData) {
               vm.imgSrc = "data:image/jpeg;base64," + imageData;
+              vm.imageData = imageData;        
             }, function(err) {
               // error
             });
@@ -68,7 +69,8 @@
                 return (name[0][0]);
             }
         }
-
+        
+        //ideally I'd move this API post to a service...Will refactor it later.
          vm.sendEmail = function () {
             var visitData = {
                 to: vm.clientData.email,
@@ -84,7 +86,8 @@
                 plants: vm.plants ? "Yes": "No",
                 other: vm.other ? "See Message": "No",
                 message: vm.message ? this.message: "Your Pet misses you!",
-                image: vm.imgSrc
+                image: vm.imgSrc,
+                imageString: vm.imageData
             }
             $http({
                 method: "POST",
