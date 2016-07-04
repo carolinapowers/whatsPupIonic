@@ -36,8 +36,5 @@ angular.module('whatsPupIonic')
           
         function deleteClient (newClient) {
             delClient.remove();
-        };
-    
-    //    var delClient = new Firebase('https://whatspup.firebaseio.com/Clients/' + this.user.$id + '/' + newClient.$id);
-     
+        }; 
 })

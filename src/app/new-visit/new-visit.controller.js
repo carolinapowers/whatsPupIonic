@@ -49,10 +49,26 @@
             };
 
             $cordovaCamera.getPicture(options).then(function(imageData) {
-              vm.imgSrc = "data:image/jpeg;base64," + imageData;
-              vm.imageData = imageData;        
+                vm.imgSrc = "data:image/jpeg;base64," + imageData;
+                vm.imageData = imageData;
+                var imgUrl = {
+                  image: vm.imgSrc
+                }
+            //ideally I'd move this API post to a service...Will refactor it later.  
+                $http({
+                    method: "POST",
+                    url: "https://polar-scrubland-63183.herokuapp.com/api/image",
+                    data: imgUrl       
+                })
+                .success(function (response) {
+                })
+                .error(function (response) {
+                    $ionicPlatform.ready(function() {
+                        $cordovaDialogs.alert('Problem loading your picture! Try again lataer','Oooops!', 'Ok')
+                    })
+                });    
             }, function(err) {
-              // error
+                    alert(err);
             });
            };
            });
@@ -94,19 +110,19 @@
                 url: "https://polar-scrubland-63183.herokuapp.com/api/email",
                 data: visitData        
             })
-                .success(function (response) {
+            .success(function (response) {
                 $ionicPlatform.ready(function() {
                     $cordovaDialogs.alert('Email sent! Thanks for using whatsPup!','Success', 'Ok')
-                   .then(function (response) {
-                        $state.go('clients');
+                    .then(function (response) {
+                    $state.go('clients');
                     })
                 })
-                })
-                .error(function (response) {
-                  $ionicPlatform.ready(function() {
+            })
+            .error(function (response) {
+                $ionicPlatform.ready(function() {
                     $cordovaDialogs.alert('There was a problem sending the visit. Try it again! ','Oooops!', 'Ok')
                 })
-                });
+            });
         }
     }
 
