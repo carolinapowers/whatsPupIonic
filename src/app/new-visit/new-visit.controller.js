@@ -63,9 +63,6 @@
                 .success(function (response) {
                 })
                 .error(function (response) {
-                    $ionicPlatform.ready(function() {
-                        $cordovaDialogs.alert('Problem loading your picture! Try again later','Oooops!', 'Ok')
-                    })
                 });    
             }, function(err) {
                     alert(err);
